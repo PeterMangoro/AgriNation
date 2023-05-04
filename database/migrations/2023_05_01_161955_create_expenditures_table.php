@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('expenditures', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('title');
             $table->float('quantity');
             $table->string('units')->nullable();

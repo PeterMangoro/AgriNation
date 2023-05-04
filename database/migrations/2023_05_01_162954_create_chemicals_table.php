@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('chemicals', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('type');            
+            $table->string('type');   
+            $table->integer('interval')->nullable();         
             $table->timestamps();
         });
     }
