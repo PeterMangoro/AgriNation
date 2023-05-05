@@ -20,6 +20,18 @@
 
     <template #form>
       <div class="col-span-6 sm:col-span-4">
+        <input-label for="date" value="Date" />
+        <text-input
+          id="date"
+          ref="dateInput"
+          v-model="date"
+          type="date"
+          class="block w-full mt-1"
+        />
+
+        <input-error :message="form.errors.date" class="mt-2" />
+      </div>
+      <div class="col-span-6 sm:col-span-4">
         <InputLabel for="title" value="Title" />
         <TextInput
           id="title"
@@ -165,6 +177,7 @@ import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
 import { useStorage } from "@/Composables/useStorage";
 
+let date = useStorage("date", null);
 let title = useStorage("title", null);
 let quantity = useStorage("quantity", null);
 let units = useStorage("units", null);
@@ -182,6 +195,7 @@ function usdEquivalent() {
 }
 
 const form = useForm({
+  date: date.value,
   title: title.value,
   quantity: quantity.value,
   units: units.value,
@@ -198,7 +212,10 @@ function createExpenditure() {
     errorBag: "createExpenditure",
     preserveScroll: true,
     onSuccess: () => {
+      localStorage.removeItem("date");
       localStorage.removeItem("title");
+      localStorage.removeItem("currency");
+      localStorage.removeItem("rate");
       localStorage.removeItem("quantity");
       localStorage.removeItem("units");
       localStorage.removeItem("price");

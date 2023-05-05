@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('expenditure_id');
             $table->string('amount');
             $table->string('currency');
             $table->timestamps();
