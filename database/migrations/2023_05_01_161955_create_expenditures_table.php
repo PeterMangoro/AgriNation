@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->float('quantity');
             $table->string('units')->nullable();
+            $table->text('detail')->nullable();
             $table->string('shop');
             $table->foreignId('price_id');
             $table->timestamps();
