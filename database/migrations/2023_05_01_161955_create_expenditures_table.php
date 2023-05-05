@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('title');
+            $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
             $table->float('quantity');
             $table->string('units')->nullable();
             $table->text('detail')->nullable();

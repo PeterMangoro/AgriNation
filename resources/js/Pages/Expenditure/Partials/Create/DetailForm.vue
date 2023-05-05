@@ -2,11 +2,11 @@
 <template>
   <form-section @submitted="createExpenditure">
     <template #title>
-      <p class="text-slate-50">Add Expense</p>
+      <p class="text-slate-50">Add Expenditure</p>
     </template>
 
     <template #description>
-      <p class="text-slate-50">Tell us about what your Expense</p>
+      <p class="text-slate-50">Tell us about what your Expenditure</p>
       <p class="text-slate-50">Prices are tagged in USD or equivalent USD</p>
       <p class="pt-2 text-slate-50">
         For points, mark at the beginning of each point with
@@ -69,8 +69,8 @@
               ref="priceRate"
               v-model="rate"
               type="number"
-              step="0.01"            
-              class="block w-full mt-1 rounded-none"              
+              step="0.01"
+              class="block w-full mt-1 rounded-none"
               autocomplete="rate"
             />
           </div>
@@ -83,14 +83,18 @@
               ref="productPrice"
               v-model="price"
               type="number"
-              step="0.01"             
+              step="0.01"
               class="block w-full mt-1 rounded-none rounded-r-md"
               autocomplete="price"
             />
           </div>
         </div>
-        <p class="pt-1 dark:text-orange-500 text-sm" :class="{ [`hidden`]: currency == 'usd' }">
-          <span>USD Equivalent:</span> <span class="italic">{{ usdEquivalent() }}</span>
+        <p
+          class="pt-1 dark:text-orange-500 text-sm"
+          :class="{ [`hidden`]: currency == 'usd' }"
+        >
+          <span>USD Equivalent:</span>
+          <span class="italic">{{ usdEquivalent() }}</span>
         </p>
       </div>
       <div></div>
@@ -188,10 +192,10 @@ let currency = useStorage("currency", "usd");
 let rate = useStorage("rate", 1);
 
 function usdEquivalent() {
-  if (price.value ==0) {
-    return '$0.00'
+  if (price.value == 0) {
+    return "$0.00";
   }
-  return '$'+(price.value/rate.value).toFixed(2)
+  return "$" + (price.value / rate.value).toFixed(2);
 }
 
 const form = useForm({
