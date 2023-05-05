@@ -7,6 +7,18 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+// CreatingEvents
+use App\Events\{    
+    Expenditure\CreatingExpenditure
+   
+};
+
+// CreatingListeners
+use App\Listeners\{    
+    Expenditure\CreateExpenditure
+   
+};
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -17,6 +29,11 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+
+        //Creating
+        CreatingExpenditure::class => [
+            CreateExpenditure::class,
         ],
     ];
 
