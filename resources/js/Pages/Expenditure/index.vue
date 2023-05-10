@@ -14,6 +14,7 @@
           class="pb-2"
           route-name="expenditures.index"
           placeholder="Search expenditures..."
+          :searchValue="data.filters.search"
           show_per_page="true"
         />
         <span class="my-auto">

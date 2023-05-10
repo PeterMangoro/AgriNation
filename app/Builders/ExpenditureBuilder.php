@@ -41,4 +41,14 @@ class ExpenditureBuilder extends Builder
                 
         });
     }
+
+    public function whereCurrencyIs(string $currency)
+    {
+        return $this->whereRelation('price','prices.currency',$currency);
+    }
+
+    public function getTotalOf(string $currency)
+    {
+        return $this->whereCurrencyIs($currency)->with('price')->get()->sum('price.amount');
+    }
 }

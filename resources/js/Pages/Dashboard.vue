@@ -1,6 +1,11 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import DashboardCard from "@/Components/Shared/DashboardCard.vue";
+import DashboardCard from "@/Components/Shared/Cards/DashboardCard.vue";
+import ListCard from "@/Components/Shared/Cards/ListCard.vue";
+
+const props = defineProps({
+  data:Object
+})
 </script>
 
 <template>
@@ -17,13 +22,13 @@ import DashboardCard from "@/Components/Shared/DashboardCard.vue";
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="overflow-hidden shadow-xl sm:rounded-lg p-3">
           <div class="flex flex-wrap justify-evenly gap-4">
-            <dashboard-card
+            <list-card
               title="Approx. Money Spent"
-              total="12"
-              add_path="expenditures.index"
+              :total="data.expenditure"
+              add_path="expenditures.create"
               more_path="expenditures.index"
-              add_tip="Click to Add a new Employee"
-              more_tip="Click to view all your available employees"
+              add_tip="Click to Add a new Expenditure"
+              more_tip="Click to view all your Expenditures"
             />
 
             <dashboard-card

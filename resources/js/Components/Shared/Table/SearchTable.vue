@@ -23,12 +23,15 @@ import {ref,watch} from 'vue'
 import {router} from '@inertiajs/vue3'
 import DebouncedRef from '@/Composables/DebouncedRef'
 
-let search = DebouncedRef('', 400);
+
 
 const props = defineProps({
     routeName:String,
     placeholder:String,
+    searchValue:String
 })
+
+let search = DebouncedRef(props.searchValue, 400);
 
 watch(search, (value) => {
   router.get(
