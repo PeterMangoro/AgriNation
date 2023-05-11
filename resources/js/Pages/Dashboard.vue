@@ -32,17 +32,17 @@ const props = defineProps({
             />
 
             <dashboard-card
-              title="Total Tomatoes Grown"
+              title="Total Sprays"
               total="12"
-              add_path="expenditures.index"
-              more_path="expenditures.index"
-              add_tip="Click to Add a new Employee"
-              more_tip="Click to view all your available employees"
+              add_path="sprays.create"
+              more_path="sprays.index"
+              add_tip="Click to Add a new Spray"
+              more_tip="Click to view all your sprays"
             />
             <dashboard-card
               title="Total Butternuts  Grown"
               total="12"
-              add_path="expenditures.index"
+              add_path="expenditures.create"
               more_path="expenditures.index"
               add_tip="Click to Add a new Employee"
               more_tip="Click to view all your available employees"

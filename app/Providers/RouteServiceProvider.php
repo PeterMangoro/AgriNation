@@ -37,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group([
                     base_path('routes/web.php'),
                     base_path('routes/expenditure_web.php'),
-                    
+                    base_path('routes/spray_web.php'),
                 ]);
         });
     }
