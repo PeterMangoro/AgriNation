@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('type');   
-            $table->integer('interval')->nullable();         
+            $table->integer('interval')->nullable();   
+            $table->string('detail')->fullText()->nullable();      
             $table->timestamps();
         });
     }

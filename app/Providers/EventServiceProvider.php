@@ -10,14 +10,16 @@ use Illuminate\Support\Facades\Event;
 // CreatingEvents
 use App\Events\{    
     Expenditure\CreatingExpenditure,
-    Spray\CreatingSpray
+    Spray\CreatingSpray,
+    Chemical\CreatingChemical,
    
 };
 
 // CreatingListeners
 use App\Listeners\{    
     Expenditure\CreateExpenditure,
-    Spray\CreateSpray
+    Spray\CreateSpray,
+    Chemical\CreateChemical,
    
 };
 
@@ -40,6 +42,10 @@ class EventServiceProvider extends ServiceProvider
 
         CreatingSpray::class => [
             CreateSpray::class,
+        ],
+
+        CreatingChemical::class => [
+            CreateChemical::class,
         ],
     ];
 

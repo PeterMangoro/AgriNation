@@ -33,17 +33,17 @@ const props = defineProps({
 
             <dashboard-card
               title="Total Sprays"
-              total="12"
+              :total="data.total_of.sprays"
               add_path="sprays.create"
               more_path="sprays.index"
               add_tip="Click to Add a new Spray"
               more_tip="Click to view all your sprays"
             />
             <dashboard-card
-              title="Total Butternuts  Grown"
-              total="12"
-              add_path="expenditures.create"
-              more_path="expenditures.index"
+              title="Chemical Library"
+              :total="data.total_of.chemicals"
+              add_path="chemicals.create"
+              more_path="chemicals.index"
               add_tip="Click to Add a new Employee"
               more_tip="Click to view all your available employees"
             />

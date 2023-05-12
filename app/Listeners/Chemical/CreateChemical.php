@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Listeners\Expenditure;
+namespace App\Listeners\Chemical;
 
 use Illuminate\Support\Facades\DB;
-use App\Services\Price\PriceService;
 use Illuminate\Queue\InteractsWithQueue;
+use App\Events\Chemical\CreatingChemical;
+use App\Services\Chemical\ChemicalService;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Events\Expenditure\CreatingExpenditure;
-use App\Services\Expenditure\ExpenditureService;
 
-class CreateExpenditure
+class CreateChemical
 {
     /**
      * Create the event listener.
@@ -22,12 +21,11 @@ class CreateExpenditure
     /**
      * Handle the event.
      */
-    public function handle(CreatingExpenditure $event): void
+    public function handle(CreatingChemical $event): void
     {
         $request = $event->validated_request;
         DB::transaction(function () use ($request) {
-        $expenditure_id = ExpenditureService::create($request);  
-        PriceService::create($request,$expenditure_id);   
+        $chemical_id = ChemicalService::create($request);
         }); 
     }
 }

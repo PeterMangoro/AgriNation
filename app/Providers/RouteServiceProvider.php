@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider
                     base_path('routes/web.php'),
                     base_path('routes/expenditure_web.php'),
                     base_path('routes/spray_web.php'),
+                    base_path('routes/chemical_web.php'),
                 ]);
         });
     }

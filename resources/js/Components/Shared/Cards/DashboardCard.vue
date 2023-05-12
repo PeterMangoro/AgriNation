@@ -6,7 +6,7 @@
             <h3 class="text-base font-semibold text-gray-600">{{ title }}</h3>
             <!-- <span class="inline-block px-2 py-1 ml-auto text-xs text-gray-500 rounded-full bg-gray-50">30 Days</span> -->
           </div>
-          <h2 v-if="total" class="mb-2 text-3xl font-bold">{{ total }}</h2>
+          <h2  class="mb-2 text-3xl font-bold">{{ total }}</h2>
           <span class="flex space-x-2">
             <Link v-if="add_path"
             :href="route(add_path,add_parameter)"
