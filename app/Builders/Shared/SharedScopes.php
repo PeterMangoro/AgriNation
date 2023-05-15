@@ -23,5 +23,54 @@ trait SharedScopes
         return $query->where('user_id', $owner_id);
     }
 
+    public function scopeWithDocuments($query)
+    {
+        return $query
+            ->with(['documents' => function ($query) {
+                $query->select(
+                    'attachmentable_id',
+                    'path',
+                    'uuid',
+                    'title',
+                    'id'
+                )
+
+                    ->latest('id');
+            },
+            ]);
+    }
+
+    public function scopeWithTrashedImages($query)
+    {
+        return $query
+            ->with(['trashed_attachments' => function ($query) {
+                $query->select(
+                    'attachmentable_id',
+                    'path',
+                    'id',
+                    'deleted_at'
+                )
+                    ->where('type', 'image')
+                    ->latest('id');
+            },
+            ]);
+    }
+
+    public function scopeWithTrashedDocuments($query)
+    {
+        return $query
+            ->with(['trashed_documents' => function ($query) {
+                $query->select(
+                    'attachmentable_id',
+                    'path',
+                    'id',
+                    'uuid',
+                    'deleted_at',
+                    'title',
+                )
+                    ->latest('id');
+            },
+            ]);
+    }
    
 }

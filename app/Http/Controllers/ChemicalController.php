@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chemical;
 use App\Handlers\Chemical\ChemicalHandler;
-use App\Http\Requests\Chemical\CreateChemicalRequest;
+use App\Views\Chemicals\ChemicalEditProps;
 use App\Views\Chemicals\ChemicalIndexProps;
+use App\Http\Requests\Chemical\CreateChemicalRequest;
 
 class ChemicalController extends Controller
 {
@@ -30,6 +32,13 @@ class ChemicalController extends Controller
    public function show()
    {
       return inertia('Chemical/show');
+   }
+
+   public function edit(Chemical $chemical)
+   {
+      return inertia('Chemical/edit',[
+         'data'=> new ChemicalEditProps($chemical)
+      ]);
    }
 
    public function update()

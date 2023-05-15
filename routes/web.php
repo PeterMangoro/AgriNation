@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AttachmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 });
+
+Route::delete('attachment/{attachment}/', [AttachmentController::class, 'destroy'])->name('attachments.destroy');
+Route::post('restore/{attachment}/', [AttachmentController::class, 'update'])->name('attachment.restore');
+Route::get('file/{attachment:uuid}', [AttachmentController::class, 'show'])->name('attachments.show');

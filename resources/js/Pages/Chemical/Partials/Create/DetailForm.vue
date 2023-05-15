@@ -1,6 +1,6 @@
 
 <template>
-  <form-section @submitted="createChemical">
+  <form-section @submitted="addDetail">
     <template #title>
       <p class="text-slate-50">Add Chemical</p>
     </template>
@@ -78,7 +78,7 @@
         :class="{ 'opacity-25': form.processing }"
         :disabled="form.processing"
       >
-        Save
+        Next
       </submit-button>
     </template>
   </form-section>
@@ -106,15 +106,10 @@ const form = useForm({
   remember: true,
 });
 
-function createChemical() {
-  form.post(route("chemicals.store"), {
-    errorBag: "createChemical",
-    preserveScroll: true,
-    onSuccess: () => {     
-      localStorage.removeItem("title");
-      localStorage.removeItem("type");     
-      localStorage.removeItem("detail");
-    },
-  });
-}
+const emit = defineEmits(["next", "prev"]);
+
+const addDetail = () => {
+  emit("next");
+};
+
 </script>
