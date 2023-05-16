@@ -30,6 +30,19 @@
           />
           <input-error :message="form.errors.title" class="mt-2" />
         </div>
+
+        <div class="col-span-6 sm:col-span-4">
+          <input-label for="title" value="Family" />
+          <text-input
+            id="type"
+            ref="chemicalInput"
+            v-model="form.type"
+            type="text"
+            class="block w-full mt-1"
+            autocomplete="type"
+          />
+          <input-error :message="form.errors.type" class="mt-2" />
+        </div>
        
   
         <div class="col-span-6 sm:col-span-4">
@@ -83,11 +96,9 @@
     title: props.chemical.title,
     images: null,
     groups: [],
-    price: props.chemical.price,
-    detail: pointConverter(props.chemical.detail),
-    category: null,
-    chemical_id: props.chemical.id,
-    sale_status: props.chemical.sale_status,
+    type: props.chemical.type,
+    detail: pointConverter(props.chemical.detail),    
+    chemical_uuid: props.chemical.uuid,   
     remember: true,
   });
   

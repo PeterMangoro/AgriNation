@@ -116,12 +116,10 @@ const props = defineProps({
 const form = useForm({
   title: props.chemical.title,
   images: null,
-  groups: [],
-  price: props.chemical.price,
   detail: pointConverter(props.chemical.detail),
   category: null,
-  chemical_id: props.chemical.id,
-  sale_status: props.chemical.sale_status,
+  chemical_uuid: props.chemical.uuid,
+  type: props.chemical.type,
   remember: true,
   _method: "PUT",
 });

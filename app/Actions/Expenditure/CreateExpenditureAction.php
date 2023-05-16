@@ -3,6 +3,7 @@
 namespace App\Actions\Expenditure;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +20,7 @@ class CreateExpenditureAction
             'shop' => $validated_request->shop,
             'date' => $validated_request->date,
             'created_at' => Carbon::now(),
+            'uuid' => Str::uuid()->toString(),
         ]);
     }
 }

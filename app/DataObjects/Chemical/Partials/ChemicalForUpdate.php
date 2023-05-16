@@ -16,6 +16,7 @@ class ChemicalForUpdate
         public  readonly array $detail,
         public  readonly int $id,       
         public  readonly string $title,
+        public  readonly string $type,
     ) {
     }
 
@@ -30,6 +31,7 @@ class ChemicalForUpdate
             $chemical->detail,
             $chemical->id,
             $chemical->title,
+            $chemical->type,
         );
     }
 }

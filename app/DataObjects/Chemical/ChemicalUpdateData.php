@@ -9,6 +9,7 @@ class ChemicalUpdateData
         public readonly ?array $document,
         public readonly string $title,
         public readonly string $detail,
+        public readonly string $type,
         
     ) {
     }
@@ -33,7 +34,8 @@ class ChemicalUpdateData
             $request->images,
             $document,
             $request->title,
-            $request->detail,            
+            $request->detail,   
+            $request->type,          
         );
     }
 }

@@ -45,8 +45,7 @@
                     text-indigo-600
                     bg-transparent bg-white
                     rounded-md
-                    cursor-pointer
-                   
+                    cursor-pointer                   
                     hover:text-indigo-500
                     focus-within:outline-none
                     focus-within:ring-2
@@ -110,12 +109,10 @@ const props = defineProps({
 const form = useForm({
   title: props.chemical.title,
   images: null,
-  groups: [],
-  price: props.chemical.price,
   detail: pointConverter(props.chemical.detail),
   category: null,
-  chemical_id: props.chemical.id,
-  sale_status: props.chemical.sale_status,
+  chemical_uuid: props.chemical.uuid,
+  type: props.chemical.type,
   document_title: null,
   document: null,
   remember: true,

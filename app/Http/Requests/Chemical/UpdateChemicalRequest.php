@@ -11,7 +11,7 @@ class UpdateChemicalRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateChemicalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|max:255',
+            'type' => 'required|max:255',
+            'detail' => 'required|string',   
+            'images.*' => 'nullable|mimes:png,jpg,gif,bmp,webp|max:2040',
+            'images' => 'nullable',
+            'document' => 'nullable|required_with:document_title|mimes:csv,txt,xlx,xls,pdf,odt,doc,docx.rtf|max:5120',
+            'document_title' => 'nullable|required_with:document', 
         ];
     }
 }
