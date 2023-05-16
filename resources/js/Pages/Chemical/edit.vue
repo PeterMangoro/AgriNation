@@ -8,7 +8,10 @@
           <update-chemical-information :chemical="data.chemical"  />
           <JetSectionBorder />
         </div>
-        
+        <div>
+          <update-chemical-images :chemical="data.chemical"  />
+          <JetSectionBorder />
+        </div>
         <div>
           <update-chemical-documents :chemical="data.chemical"  />
           <JetSectionBorder />

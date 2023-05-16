@@ -8,7 +8,7 @@ class ChemicalDisplay
         public  readonly string $title,           
         public  readonly array $detail,   
         public  readonly string $type,       
-        public  readonly int $id,
+        public  readonly string $uuid,
     ) {
     }
     public static function data($chemical)
@@ -17,7 +17,7 @@ class ChemicalDisplay
             $chemical->title,
             $chemical->detail,           
             $chemical->type,           
-            $chemical->id
+            $chemical->uuid
         );
     }
 }

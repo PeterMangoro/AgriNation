@@ -7,6 +7,7 @@ use App\Handlers\Chemical\ChemicalHandler;
 use App\Views\Chemicals\ChemicalEditProps;
 use App\Views\Chemicals\ChemicalIndexProps;
 use App\Http\Requests\Chemical\CreateChemicalRequest;
+use App\Http\Requests\Chemical\UpdateChemicalRequest;
 
 class ChemicalController extends Controller
 {
@@ -34,16 +35,17 @@ class ChemicalController extends Controller
       return inertia('Chemical/show');
    }
 
-   public function edit(Chemical $chemical)
+   public function edit(string $uuid)
    {
       return inertia('Chemical/edit',[
-         'data'=> new ChemicalEditProps($chemical)
+         'data'=> new ChemicalEditProps($uuid)
       ]);
    }
 
-   public function update()
+   public function update(UpdateChemicalRequest $request,string $uuid)
    {
-      return inertia('Chemical/index');
+      ChemicalHandler::update($request, $uuid);
+        return back();
    }
 
    public function delete()

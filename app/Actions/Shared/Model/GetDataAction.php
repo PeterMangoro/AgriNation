@@ -42,8 +42,8 @@ class GetDataAction
     ): Model {
         return $model
             ->whereUUIDmatches($uuid)
-            ->selectDetailAttributes()            
-            ->belongsToAuthUser()
+            // ->selectDetailAttributes()            
+            // ->belongsToAuthUser()
             ->first();
     }
 

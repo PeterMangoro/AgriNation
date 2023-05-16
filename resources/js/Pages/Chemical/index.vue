@@ -89,7 +89,7 @@
             <div class="flex space-x-1">
               <ButtonLink
                 class=""
-                :link="route('chemicals.edit', chemical.id)"
+                :link="route('chemicals.edit', chemical.uuid)"
                 >View</ButtonLink
               >
               <Button

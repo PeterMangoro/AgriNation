@@ -49,8 +49,7 @@
                     text-indigo-600
                     bg-transparent bg-white
                     rounded-md
-                    cursor-pointer
-                   
+                    cursor-pointer                   
                     hover:text-indigo-500
                     focus-within:outline-none
                     focus-within:ring-2
@@ -95,8 +94,8 @@
       </submit-button>
     </template>
   </form-section>
-  <edit-image-card class="mt-2" :images="chemical.attachments" />
-  <edit-image-card class="mt-2" :images="chemical.trashed_images" />
+  <update-image-card class="mt-2" :images="chemical.attachments" />
+  <update-image-card class="mt-2" :images="chemical.trashed_images" />
 </template>
 <script setup>
 import { ref } from "vue";
@@ -108,7 +107,7 @@ import TextInput from "@/Components/Shared/Form/TextInput.vue";
 import TextArea from "@/Components/Shared/Form/TextArea.vue";
 import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
-// import EditImageCard from "@/Components/Shared/EditImageCard.vue";
+import UpdateImageCard from "@/Components/Shared/UpdateImageCard.vue";
 import { pointConverter } from "@/Composables/pointConverter";
 
 const props = defineProps({

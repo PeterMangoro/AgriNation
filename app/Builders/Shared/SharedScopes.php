@@ -6,6 +6,26 @@ use Illuminate\Support\Facades\Auth;
 
 trait SharedScopes
 {
+    public function scopeWhereUUIDmatches($query, $uuid)
+    {
+        return $query->where('uuid', $uuid);
+    }
+
+    public function scopeWithImages($query)
+    {
+        return $query
+            ->with(['attachments' => function ($query) {
+                $query->select(
+                    'attachmentable_id',
+                    'path',
+                    'id',
+                )
+                    ->where('type', 'image')
+                    ->latest('id');
+            },
+            ]);
+    }
+
     public function scopeBelongsToAuthUser($query)
     {
         return $query->whereRelation('user', 'users.id', Auth::user()->id);

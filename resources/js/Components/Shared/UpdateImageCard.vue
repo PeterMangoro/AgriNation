@@ -21,7 +21,7 @@
           Delete
         </button>
       </div>
-      <img class="object-cover w-48 h-48 rounded-b-lg" :src="image.path" />
+      <img class="object-cover w-48 h-48 rounded-b-lg" :src="image.path.replace('public','/storage')" />
     </div>
   </div>
 
