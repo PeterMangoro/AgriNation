@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Builders\LocationBuilder;
+use App\Models\Shared\SharedModel;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Location extends Model
+class Location extends SharedModel
 {
     use HasFactory;
+
+    public function newEloquentBuilder($query): LocationBuilder
+    {
+        return new LocationBuilder($query);
+    }
 }

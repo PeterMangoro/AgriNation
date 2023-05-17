@@ -36,15 +36,15 @@
           <TableHead class="cursor-pointer" @click="sort('title')" name="title"
             >Title</TableHead
           >
-          <TableHead class="hidden sm:table-cell">Quantity</TableHead>
-          <TableHead class="hidden sm:table-cell">Description</TableHead>
-          <!-- <TableHead class="hidden sm:table-cell">Preview</TableHead> -->
           <TableHead
             class="cursor-pointer hidden sm:table-cell"
-            @click="sort('price')"
-            name="price"
-            >Price</TableHead
+            @click="sort('area')"
+            name="area"
+            >Area</TableHead
           >
+          <TableHead class="hidden sm:table-cell">Description</TableHead>
+          <!-- <TableHead class="hidden sm:table-cell">Preview</TableHead> -->
+          
           <!-- <TableHead
               class="cursor-pointer"
               @click="sort('sale_status')"
@@ -60,9 +60,10 @@
           :key="location.id"
         >
           <TableData>{{ location.title }}</TableData>
-          <TableData class="hidden sm:table-cell">{{
-            location.quantity
-          }}</TableData>
+          <TableData class="hidden sm:table-cell">
+            {{ location.area }}           
+
+          </TableData>
           <TableData class="w-auto hidden sm:table-cell">
             <p
               v-for="(point, index) in location.detail"
@@ -76,11 +77,7 @@
               ><img class="w-20 h-20 rounded" :src="location.latest_image"
             /></TableData> -->
 
-          <TableData class="hidden sm:table-cell">
-            {{ location.price }} <br>
-            <span v-if="location.usd_equivalent" class="font-bold"> ({{ location.usd_equivalent }})</span>
-
-          </TableData>
+          
           <!-- <TableData class="hidden sm:table-cell">
               <span v-if="location.status == 'For Sale'">Available</span>
               <span class="text-red-500" v-else>Not Available</span>

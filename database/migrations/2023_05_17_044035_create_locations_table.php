@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->index();
             $table->foreignId('user_id');
             $table->string('title');
             $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
             $table->string('area');
+            $table->text('detail')->fullText();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

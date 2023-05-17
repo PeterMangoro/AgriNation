@@ -32,16 +32,16 @@
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-          <input-label for="title" value="Family" />
+          <input-label for="title" value="Area" />
           <text-input
-            id="type"
+            id="area"
             ref="locationInput"
-            v-model="form.type"
+            v-model="form.area"
             type="text"
             class="block w-full mt-1"
-            autocomplete="type"
+            autocomplete="area"
           />
-          <input-error :message="form.errors.type" class="mt-2" />
+          <input-error :message="form.errors.area" class="mt-2" />
         </div>
        
   
@@ -96,7 +96,7 @@
     title: props.location.title,
     images: null,
     groups: [],
-    type: props.location.type,
+    area: props.location.area,
     detail: pointConverter(props.location.detail),    
     location_uuid: props.location.uuid,   
     remember: true,

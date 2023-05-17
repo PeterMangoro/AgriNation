@@ -195,13 +195,13 @@ import { useStorage } from "@/Composables/useStorage";
 
 const title = useStorage("title");
 let detail = useStorage("detail");
-let type = useStorage("type", "usd");
+let area = useStorage("area");
 
 const form = useForm({
   title: title.value,
   images: null,
   detail: detail.value,
-  type: type.value, 
+  area: area.value, 
   document: null,
   document_title: null,
   remember: true,
@@ -237,7 +237,7 @@ function createLocation() {
     preserveScroll: true,
     onSuccess: () => {     
       localStorage.removeItem("title");
-      localStorage.removeItem("type");     
+      localStorage.removeItem("area");     
       localStorage.removeItem("detail");
     },
   });

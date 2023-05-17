@@ -12,27 +12,31 @@ use App\Events\{
     Expenditure\CreatingExpenditure,
     Spray\CreatingSpray,
     Chemical\CreatingChemical,   
+    Location\CreatingLocation,   
 };
 
 // CreatingListeners
 use App\Listeners\{    
     Expenditure\CreateExpenditure,
     Spray\CreateSpray,
-    Chemical\CreateChemical,   
+    Chemical\CreateChemical,  
+    Location\CreateLocation, 
 };
 
 // UpdatingEvents
 use App\Events\{    
     Expenditure\UpdatingExpenditure,
     Spray\UpdatingSpray,
-    Chemical\UpdatingChemical,   
+    Chemical\UpdatingChemical,  
+    Location\UpdatingLocation,  
 };
 
 // UpdatingListeners
 use App\Listeners\{    
     Expenditure\UpdateExpenditure,
     Spray\UpdateSpray,
-    Chemical\UpdateChemical,   
+    Chemical\UpdateChemical, 
+    Location\UpdateLocation,   
 };
 
 class EventServiceProvider extends ServiceProvider
@@ -60,9 +64,17 @@ class EventServiceProvider extends ServiceProvider
             CreateChemical::class,
         ],
 
+        CreatingLocation::class => [
+            CreateLocation::class,
+        ],
+
         //Updating
         UpdatingChemical::class => [
             UpdateChemical::class,
+        ],
+
+        UpdatingLocation::class => [
+            UpdateLocation::class,
         ],
     ];
 

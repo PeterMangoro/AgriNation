@@ -34,20 +34,17 @@
       </div>
 
       <div class="col-span-6 sm:col-span-4">
-        <input-label for="type" value="Family" />
-        <select
-          class=" rounded-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          name="rate"
-          id="rate"
-          v-model="type"
-        >
-          <option value="Pesticide">Pesticide</option>
-          <option value="Insecticide">Insecticide</option>
-          <option value="Fungicide">Fungicide</option>
-          <option value="Herbicide">Herbicide</option>
-          <option value="Molluscicide">Molluscicide</option>
-          <option value="Algaecide">Algaecide</option>
-        </select>
+        <InputLabel for="area" value="Area" />
+        <TextInput
+          id="area"
+          v-model="area"
+          type="text"
+          class="block w-full mt-1"
+          required
+          autofocus
+          autocomplete="area"
+        />
+        <InputError class="mt-2" :message="form.errors.area" />
       </div>
 
      
@@ -97,12 +94,12 @@ import { useStorage } from "@/Composables/useStorage";
 
 let title = useStorage("title", null);
 let detail = useStorage("detail", null);
-let type = useStorage("type", "usd");
+let area = useStorage("area", null);
 
 const form = useForm({
   title: title.value, 
   detail: detail.value, 
-  type: type.value, 
+  area: area.value, 
   remember: true,
 });
 
