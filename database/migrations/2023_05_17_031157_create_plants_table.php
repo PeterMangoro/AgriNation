@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chemicals', function (Blueprint $table) {
+        Schema::create('plants', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
-            $table->string('type');   
-            $table->integer('interval')->nullable();   
-            $table->string('detail')->fullText()->nullable();      
+            $table->uuid('uuid')->index(); 
+            $table->string('title');      
+            $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();     
+            $table->text('detail')->fullText();           
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chemicals');
+        Schema::dropIfExists('plants');
     }
 };

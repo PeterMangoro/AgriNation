@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chemicals', function (Blueprint $table) {
+        Schema::create('plant_controls', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
-            $table->string('type');   
-            $table->integer('interval')->nullable();   
-            $table->string('detail')->fullText()->nullable();      
+            $table->foreignId('plant_id');
+            $table->foreignId('spray_id');
+            $table->foreignId('land_id');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chemicals');
+        Schema::dropIfExists('plant_controls');
     }
 };

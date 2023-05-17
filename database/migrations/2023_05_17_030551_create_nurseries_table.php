@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sprays', function (Blueprint $table) {
+        Schema::create('nurseries', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->index();
             $table->foreignId('user_id');
-            $table->foreignId('chemical_id');
+            $table->foreignId('plant_id');
             $table->string('location');
-            $table->text('notes')->fullText();
-            $table->date('spray_date');            
+            $table->text('detail')->fullText();
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
             $table->string('plant_count')->nullable();
             $table->softDeletes();
             $table->timestamps();
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sprays');
+        Schema::dropIfExists('nurseries');
     }
 };

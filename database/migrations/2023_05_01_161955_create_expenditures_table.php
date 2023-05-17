@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
             $table->float('quantity');
             $table->string('units')->nullable();
-            $table->text('detail')->nullable();
+            $table->text('detail')->fullText()->nullable();
             $table->string('shop');
             $table->date('date');          
             $table->timestamps();
