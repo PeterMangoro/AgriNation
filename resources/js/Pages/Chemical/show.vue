@@ -1,3 +1,3 @@
 <template>
-    This is Chemical edit page
+    This is Plant edit page
 </template>

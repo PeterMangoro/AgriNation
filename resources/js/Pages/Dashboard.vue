@@ -31,6 +31,15 @@ const props = defineProps({
               more_tip="Click to view all your Expenditures"
             />
 
+            <list-card
+              title="Approx. Total Plants"
+              :total="data.plant"
+              add_path="plants.create"
+              more_path="plants.index"
+              add_tip="Click to Add a new Plant"
+              more_tip="Click to view all your Plants"
+            />
+
             <dashboard-card
               title="Total Sprays"
               :total="data.total_of.sprays"
