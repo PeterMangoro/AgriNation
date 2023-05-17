@@ -1,7 +1,7 @@
 
 <template>
-  <form-section @submitted="updatePlantDetail">
-    <template #title> <p class="text-slate-100">  Update Plant Images</p> </template>
+  <form-section @submitted="updateLocationDetail">
+    <template #title> <p class="text-slate-100">  Update Location Images</p> </template>
 
     <template #description>
       <p class="text-slate-50 mt-2">Please resize your image ,size should not Exceed 2mb.</p>
@@ -94,8 +94,8 @@
       </submit-button>
     </template>
   </form-section>
-  <update-image-card class="mt-2" :images="plant.attachments" />
-  <update-image-card class="mt-2" :images="plant.trashed_images" />
+  <update-image-card class="mt-2" :images="location.attachments" />
+  <update-image-card class="mt-2" :images="location.trashed_images" />
 </template>
 <script setup>
 import { ref } from "vue";
@@ -111,15 +111,15 @@ import UpdateImageCard from "@/Components/Shared/UpdateImageCard.vue";
 import { pointConverter } from "@/Composables/pointConverter";
 
 const props = defineProps({
-  plant: Object,
+  location: Object,
 });
 const form = useForm({
-  title: props.plant.title,
+  title: props.location.title,
   images: null,
-  detail: pointConverter(props.plant.detail),
+  detail: pointConverter(props.location.detail),
   category: null,
-  plant_uuid: props.plant.uuid,
-  type: props.plant.type,
+  location_uuid: props.location.uuid,
+  type: props.location.type,
   remember: true,
   _method: "PUT",
 });
@@ -130,9 +130,9 @@ function saleStatus() {
   } else return "Currently Inactive";
 }
 
-const updatePlantDetail = () => {
-  form.post(route("plants.update", props.plant.uuid), {
-    errorBag: "updatePlantDetail",
+const updateLocationDetail = () => {
+  form.post(route("locations.update", props.location.uuid), {
+    errorBag: "updateLocationDetail",
     preserveScroll: true,
   });
 };

@@ -1,11 +1,11 @@
 
 <template>
-    <form-section @submitted="updatePlantDetail">
+    <form-section @submitted="updateLocationDetail">
       <template #title> 
-        <p class="text-sky-500">Update Plant</p>  </template>
+        <p class="text-sky-500">Update Location</p>  </template>
   
       <template #description>
-        <p class="text-slate-100 mb-2"> Ensure your Plant is described in detail so that clients understand it
+        <p class="text-slate-100 mb-2"> Ensure your Location is described in detail so that clients understand it
         better.</p>
         <p class="pt-2 text-slate-50">
           For points, mark at the beginning of each point with
@@ -19,10 +19,10 @@
   
       <template #form>
         <div class="col-span-6 sm:col-span-4">
-          <input-label for="title" value="Plant Title" />
+          <input-label for="title" value="Location Title" />
           <text-input
             id="title"
-            ref="plantInput"
+            ref="locationInput"
             v-model="form.title"
             type="text"
             class="block w-full mt-1"
@@ -35,7 +35,7 @@
           <input-label for="title" value="Family" />
           <text-input
             id="type"
-            ref="plantInput"
+            ref="locationInput"
             v-model="form.type"
             type="text"
             class="block w-full mt-1"
@@ -88,17 +88,17 @@
   import { pointConverter } from "@/Composables/pointConverter";
   
   const detailInput = ref(null);
-  const plantInput = ref(null);
+  const locationInput = ref(null);
   const props = defineProps({
-    plant: Object,
+    location: Object,
   });
   const form = useForm({
-    title: props.plant.title,
+    title: props.location.title,
     images: null,
     groups: [],
-    type: props.plant.type,
-    detail: pointConverter(props.plant.detail),    
-    plant_uuid: props.plant.uuid,   
+    type: props.location.type,
+    detail: pointConverter(props.location.detail),    
+    location_uuid: props.location.uuid,   
     remember: true,
   });
   
@@ -108,9 +108,9 @@
     } else return "Currently Inactive";
   }
   
-  const updatePlantDetail = () => {
-    form.put(route("plants.update", props.plant.uuid), {
-      errorBag: "updatePlantDetail",
+  const updateLocationDetail = () => {
+    form.put(route("locations.update", props.location.uuid), {
+      errorBag: "updateLocationDetail",
       preserveScroll: true,
     });
   };

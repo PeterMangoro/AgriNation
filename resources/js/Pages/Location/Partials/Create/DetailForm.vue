@@ -34,7 +34,7 @@
       </div>
 
       <div class="col-span-6 sm:col-span-4">
-        <input-label for="type" value="Location" />
+        <input-label for="type" value="Family" />
         <select
           class=" rounded-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           name="rate"

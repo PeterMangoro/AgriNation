@@ -1,13 +1,13 @@
 
 <template>
-  <form-section @submitted="updatePlantDetail">
-    <template #title> <p class="text-slate-100">  Update Plant Documents</p> </template>
+  <form-section @submitted="updateLocationDetail">
+    <template #title> <p class="text-slate-100">  Update Location Images</p> </template>
 
     <template #description>
-      <p class="text-slate-50">  Upload Plant related documents eg. User Manuals</p>
-     
-      <p class="pt-4 text-slate-100">
-        Deleted documents are stored and can latter be restored.
+      <p class="text-slate-50 mt-2">Please resize your image ,size should not Exceed 2mb.</p>
+      <p class="text-slate-50 mt-2">
+        Visit <a class="underline" href="https://tinypng.com/" target="_blank">tinypng.com</a> for
+        free image resizing.
       </p>
     </template>
 
@@ -27,16 +27,20 @@
             "
           >
             <div class="space-y-1 text-center">
-              <input-label for="document_title" value="Document Name" />
-              <text-input
-                id="document_title"
-                ref="plantInput"
-                v-model="form.document_title"
-                type="text"
-                class="block w-full mt-1"
-                autocomplete="document_title"
-              />
-              <input-error :message="form.errors.document_title" class="mt-2" />
+              <svg
+                class="w-12 h-12 mx-auto text-black"
+                stroke="currentColor"
+                fill="none"
+                viewBox="0 0 48 48"
+                aria-hidden="true"
+              >
+                <path
+                  d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
               <div class="flex text-sm text-black">
                 <label
                   for="file-upload"
@@ -53,17 +57,24 @@
                     focus-within:ring-indigo-500
                   "
                 >
-                  <!-- <span>Upload a new file</span> -->
+                 
                   <input
                     id="images"
-                    @input="form.document = $event.target.files[0]"
+                    @input="form.images = $event.target.files"
                     type="file"
+                    multiple
+                    required
                     @change="onFileChange"
                   />
                 </label>
               </div>
-
-              <input-error :message="form.errors.document" class="mt-2" />
+              <p class="text-xs text-black">PNG, JPG, GIF up to 2MB</p>
+              <InputError
+                class="mt-2"
+                v-for="(error, image) in form.errors.images"
+                :key="image"
+                :message="error"
+              />
             </div>
           </div>
         </div>
@@ -83,11 +94,8 @@
       </submit-button>
     </template>
   </form-section>
-  <edit-document-list :documents="plant.documents" path="attachments.show" />
-  <edit-document-list
-    :documents="plant.trashed_documents"
-    path="attachments.show"
-  />
+  <update-image-card class="mt-2" :images="location.attachments" />
+  <update-image-card class="mt-2" :images="location.trashed_images" />
 </template>
 <script setup>
 import { ref } from "vue";
@@ -99,22 +107,19 @@ import TextInput from "@/Components/Shared/Form/TextInput.vue";
 import TextArea from "@/Components/Shared/Form/TextArea.vue";
 import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
-// import EditImageCard from "@/Components/Shared/EditImageCard.vue";
-import EditDocumentList from "@/Components/Shared/EditDocumentList.vue";
+import UpdateImageCard from "@/Components/Shared/UpdateImageCard.vue";
 import { pointConverter } from "@/Composables/pointConverter";
 
 const props = defineProps({
-  plant: Object,
+  location: Object,
 });
 const form = useForm({
-  title: props.plant.title,
+  title: props.location.title,
   images: null,
-  detail: pointConverter(props.plant.detail),
+  detail: pointConverter(props.location.detail),
   category: null,
-  plant_uuid: props.plant.uuid,
-  type: props.plant.type,
-  document_title: null,
-  document: null,
+  location_uuid: props.location.uuid,
+  type: props.location.type,
   remember: true,
   _method: "PUT",
 });
@@ -125,9 +130,9 @@ function saleStatus() {
   } else return "Currently Inactive";
 }
 
-const updatePlantDetail = () => {
-  form.post(route("plants.update", props.plant.uuid), {
-    errorBag: "updatePlantDetail",
+const updateLocationDetail = () => {
+  form.post(route("locations.update", props.location.uuid), {
+    errorBag: "updateLocationDetail",
     preserveScroll: true,
   });
 };

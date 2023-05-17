@@ -33,13 +33,23 @@ const props = defineProps({
 
             <list-card
               title="Approx. Total Plants"
-              :total="data.plant"
+              total="data.plant"
               add_path="plants.create"
               more_path="plants.index"
               add_tip="Click to Add a new Plant"
               more_tip="Click to view all your Plants"
             />
 
+
+            <dashboard-card
+              title="Total Arable Locations"
+              :total="data.locations"
+              add_path="locations.create"
+              more_path="locations.index"
+              add_tip="Click to Add a new Location"
+              more_tip="Click to view all your locations"
+            />
+            
             <dashboard-card
               title="Total Sprays"
               :total="data.total_of.sprays"
