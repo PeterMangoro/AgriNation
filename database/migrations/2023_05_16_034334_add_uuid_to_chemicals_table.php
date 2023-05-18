@@ -22,32 +22,32 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->uuid('uuid')->default(str()->uuid()->toString())->index();
+            $table->uuid('uuid')->index();
              $table->softDeletes();
         });
 
         Schema::table('expenditures', function (Blueprint $table) {
-            $table->uuid('uuid')->default(str()->uuid()->toString())->index();
+            $table->uuid('uuid')->index();
              $table->softDeletes();
         });
 
         Schema::table('chemicals', function (Blueprint $table) {
-            $table->uuid('uuid')->default(str()->uuid()->toString())->index();
+            $table->uuid('uuid')->index();
              $table->softDeletes();
         });
 
         Schema::table('attachments', function (Blueprint $table) {
-            $table->uuid('uuid')->default(str()->uuid()->toString())->index();
+            $table->uuid('uuid')->index();
              $table->softDeletes();
         });
 
         Schema::table('growths', function (Blueprint $table) {
-            $table->uuid('uuid')->default(str()->uuid()->toString())->index();
+            $table->uuid('uuid')->index();
              $table->softDeletes();
         });
 
         Schema::table('sprays', function (Blueprint $table) {
-            $table->uuid('uuid')->default(str()->uuid()->toString())->index();
+            $table->uuid('uuid')->index();
              $table->softDeletes();
         });
     }

@@ -34,28 +34,61 @@
       </div>
 
       <div class="col-span-6 sm:col-span-4">
-        <input-label for="type" value="Location" />
+        <input-label for="type" value="Stage" />
         <select
-          class=" rounded-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          name="rate"
-          id="rate"
-          v-model="type"
+          class="rounded-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          name="stage"
+          id="stage"
+          v-model="stage"
         >
-          <option value="Pesticide">Pesticide</option>
-          <option value="Insecticide">Insecticide</option>
-          <option value="Fungicide">Fungicide</option>
-          <option value="Herbicide">Herbicide</option>
-          <option value="Molluscicide">Molluscicide</option>
-          <option value="Algaecide">Algaecide</option>
+          <option value="Pesticide">Nursery</option>
+          <option value="Insecticide">Direct Planting</option>
         </select>
       </div>
 
-     
+      <div class="col-span-6 sm:col-span-4">
+        <input-label for="date" value="Planting Date" />
+        <text-input
+          id="date"
+          ref="dateInput"
+          v-model="date"
+          type="date"
+          class="block w-full mt-1"
+        />
 
-      
+        <input-error :message="form.errors.date" class="mt-2" />
+      </div>
 
       <div class="col-span-6 sm:col-span-4">
-        <input-label for="detail" value="Location Description" />
+        <InputLabel for="batch" value="Batch Number" />
+        <TextInput
+          id="batch"
+          v-model="batch"
+          type="text"
+          class="block w-full mt-1"
+          required
+          autofocus
+          autocomplete="batch"
+        />
+        <InputError class="mt-2" :message="form.errors.batch" />
+      </div>
+
+      <div class="col-span-6 sm:col-span-4">
+        <InputLabel for="total_plants" value="Plant Total" />
+        <TextInput
+          id="total_plants"
+          v-model="total_plants"
+          type="text"
+          class="block w-full mt-1"
+          required
+          autofocus
+          autocomplete="total_plants"
+        />
+        <InputError class="mt-2" :message="form.errors.total_plants" />
+      </div>
+
+      <div class="col-span-6 sm:col-span-4">
+        <input-label for="detail" value="Description" />
         <text-area
           id="detail"
           ref="detailInput"
@@ -97,13 +130,25 @@ import { useStorage } from "@/Composables/useStorage";
 
 let title = useStorage("title", null);
 let detail = useStorage("detail", null);
-let type = useStorage("type", "usd");
+let stage = useStorage("stage", null);
+let location = useStorage("location", null);
+let date = useStorage("date", null);
+let batch = useStorage("batch", null);
+let total_plants = useStorage("total_plants", null);
 
 const form = useForm({
-  title: title.value, 
-  detail: detail.value, 
-  type: type.value, 
+  title: title.value,
+  detail: detail.value,
+  stage: stage.value,
+  location: location.value,
+  date: date.value,
+  batch: batch.value,
+  total_plants: total_plants.value,
   remember: true,
+});
+
+const props = defineProps({
+  locations: Object,
 });
 
 const emit = defineEmits(["next", "prev"]);
@@ -112,4 +157,12 @@ const addDetail = () => {
   emit("next");
 };
 
+const onChange = (val) => {
+  console.log(val);
+  val[0].checked === true
+    ? form.locations.push(val[0].id)
+    : form.locations.pop(val[0].id);
+};
+
+const locationType = ref(null);
 </script>

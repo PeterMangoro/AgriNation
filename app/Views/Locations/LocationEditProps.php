@@ -25,4 +25,5 @@ class LocationEditProps
     {       
         return $this->location();
     }
+    
 }

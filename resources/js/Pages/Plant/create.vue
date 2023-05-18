@@ -3,11 +3,12 @@
         <div>
             <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div v-if="step_one">
-          <detail-form @next="go_to_step_two" />
+          <detail-form @next="go_to_step_two"  />
         </div>
 
         <div v-if="step_two">
           <attachment-form
+          :locations="data.locations"
             @prev="go_to_step_one"           
           />
         </div>
@@ -36,5 +37,9 @@ function go_to_step_two() {
 function reset() {
   (step_one.value = false), (step_two.value = false);
 }
+
+const props = defineProps({
+  data:Object
+})
 
 </script>

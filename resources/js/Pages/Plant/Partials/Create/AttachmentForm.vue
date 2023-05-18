@@ -153,6 +153,24 @@
         </div>
       </div>
 
+      <div class="col-span-6 sm:col-span-6">
+        <InputLabel for="locations" value="Select Planted Location" />
+        <InputError class="mt-2" :message="form.errors.locations" />
+
+        <span>
+          <CheckBoxGroup
+            v-for="location in locations"
+            :key="location.id"
+            :items="[
+              {
+                label: location.title,
+                id: location.id,
+              },
+            ]"
+            @on-change="onChange"
+          />
+        </span>
+      </div>
     
     </template>
 
@@ -192,34 +210,39 @@ import TextInput from "@/Components/Shared/Form/TextInput.vue";
 import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
 import { useStorage } from "@/Composables/useStorage";
+import CheckBoxGroup from "@/Components/Shared/Checkbox/check-box-group.vue";
 
-const title = useStorage("title");
-let detail = useStorage("detail");
-let type = useStorage("type", "usd");
+let title = useStorage("title", null);
+let detail = useStorage("detail", null);
+let stage = useStorage("stage", null);
+let location = useStorage("location", null);
+let date = useStorage("date", null);
+let batch = useStorage("batch", null);
 
 const form = useForm({
   title: title.value,
-  images: null,
   detail: detail.value,
-  type: type.value, 
-  document: null,
-  document_title: null,
+  stage: stage.value,  
+  date: date.value,
+  batch: batch.value,
+  locations: [],
   remember: true,
-  
 });
+
+const props = defineProps({
+  locations: Object,
+});
+
 
 const onChange = (val) => {
   console.log(val);
   val[0].checked === true
-    ? form.categories.push(val[0].id)
-    : form.categories.pop(val[0].id);
+    ? form.locations.push(val[0].id)
+    : form.locations.pop(val[0].id);
 };
 
-const categoryType = ref(null);
 
-function showCategoryType(type) {
-  categoryType.value = type;
-}
+const locationType = ref(null);
 
 const emit = defineEmits(["prev"]);
 

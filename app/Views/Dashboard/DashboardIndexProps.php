@@ -14,7 +14,7 @@ class DashboardIndexProps extends BaseView
 
     public function totalOf()
     {
-        return TotalOfData::counts();
-        
+        return TotalOfData::counts();        
     }
+   
 }

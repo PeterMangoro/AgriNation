@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nurseries', function (Blueprint $table) {
+        Schema::create('gardens', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->index();
             $table->foreignId('user_id');
             $table->foreignId('plant_id');
-            $table->string('location')->nullable();
-            $table->text('detail')->fullText();
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
-            $table->string('plant_count')->nullable();
-            $table->softDeletes();
+            // $table->foreignId('location_id');
+            $table->string('total_plants');
+            $table->date('plant_date')->nullable();
+            $table->text('detail')->fullText(); 
+            $table->string('batch');
+            // $table->date('actual_date')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nurseries');
+        Schema::dropIfExists('gardens');
     }
 };

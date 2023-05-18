@@ -43,7 +43,7 @@ const props = defineProps({
 
             <dashboard-card
               title="Total Arable Locations"
-              :total="data.locations"
+              :total="data.total_of.locations"
               add_path="locations.create"
               more_path="locations.index"
               add_tip="Click to Add a new Location"

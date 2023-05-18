@@ -6,6 +6,7 @@ use App\Models\Plant;
 use App\Handlers\Plant\PlantHandler;
 use App\Views\Plants\PlantEditProps;
 use App\Views\Plants\PlantIndexProps;
+use App\Views\Plants\PlantCreateProps;
 use App\Http\Requests\Plant\CreatePlantRequest;
 use App\Http\Requests\Plant\UpdatePlantRequest;
 
@@ -20,7 +21,9 @@ class PlantController extends Controller
 
    public function create()
    {
-      return inertia('Plant/create');
+      return inertia('Plant/create',[
+         'data'=> new PlantCreateProps()
+      ]);
    }
 
    public function store(CreatePlantRequest $request)

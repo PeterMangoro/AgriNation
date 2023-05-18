@@ -65,7 +65,7 @@ const handleClick = () => {
   >
     <span :class="iconClass">
       <!-- <Square v-if="!props.checked" /> -->
-      <p v-if="!props.checked">
+      <p v-if="!props.checked" class="dark:text-slate-50">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -79,7 +79,7 @@ const handleClick = () => {
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
         </svg>
       </p>
-      <p v-else>
+      <p v-else class="text-green-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -96,7 +96,7 @@ const handleClick = () => {
       </p>
       <!-- <CheckedSquare v-if="props.checked" /> -->
     </span>
-    <span :id="`label-${props.id}`" class="label">
+    <span :id="`label-${props.id}`" class="px-1 dark:text-slate-50">
       {{ props.label }}
     </span>
   </div>
@@ -113,9 +113,7 @@ const handleClick = () => {
   user-select: none;
 }
 
-.label {
-  padding-left: 0.5rem;
-}
+
 
 .check-box__icon {
   display: block;
