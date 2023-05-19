@@ -10,10 +10,11 @@ class PlantCreateData
         public readonly string $stage,
         public readonly string $date,
         public readonly string $batch,
+        public readonly ?string $nursery_location,
         public readonly string $total_plants,
         public readonly ?array $document,
         public readonly ?array $images,
-        public readonly array $locations,
+        public readonly ?array $locations,
     ) {
     }
     public static function fromRequest($request)
@@ -34,6 +35,7 @@ class PlantCreateData
             $request->stage,
             $request->date,
             $request->batch,
+            $request->nursery_location,
             $request->total_plants,
             $document,
             $request->images,

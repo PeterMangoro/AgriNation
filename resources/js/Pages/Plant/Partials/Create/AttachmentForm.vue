@@ -1,6 +1,6 @@
 
 <template>
-  <form-section @submitted="createLocation">
+  <form-section @submitted="createPlant">
     <template #title> <p class="text-slate-50 underline"> Upload Location Attachments</p> </template>
 
     <template #description>
@@ -153,7 +153,7 @@
         </div>
       </div>
 
-      <div class="col-span-6 sm:col-span-6">
+      <div v-if="stage != 'nursery'" class="col-span-6 sm:col-span-6">
         <InputLabel for="locations" value="Select Planted Location" />
         <InputError class="mt-2" :message="form.errors.locations" />
 
@@ -218,14 +218,18 @@ let stage = useStorage("stage", null);
 let location = useStorage("location", null);
 let date = useStorage("date", null);
 let batch = useStorage("batch", null);
+let nursery_location = useStorage("nursery_location", null);
+let total_plants = useStorage("total_plants", null);
 
 const form = useForm({
   title: title.value,
   detail: detail.value,
-  stage: stage.value,  
+  stage: stage.value,
+  locations: [],
   date: date.value,
   batch: batch.value,
-  locations: [],
+  nursery_location: nursery_location.value,
+  total_plants: total_plants.value,
   remember: true,
 });
 
@@ -254,9 +258,9 @@ const back = () => {
 
 
 
-function createLocation() {
-  form.post(route("locations.store"), {
-    errorBag: "createLocation",
+function createPlant() {
+  form.post(route("plants.store"), {
+    errorBag: "createPlant",
     preserveScroll: true,
     onSuccess: () => {     
       localStorage.removeItem("title");

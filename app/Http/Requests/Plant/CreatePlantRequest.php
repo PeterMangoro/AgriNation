@@ -33,7 +33,8 @@ class CreatePlantRequest extends FormRequest
             'document' => 'nullable|required_with:document_title|mimes:csv,txt,xlx,xls,pdf,odt,doc,docx.rtf|max:5120',
             'document_title' => 'nullable|required_with:document',
             'locations.*' => 'required|integer',
-            'locations' => 'required', #validate if array exists
+            'locations' => 'required_without:nursery_location', #validate if array exists
+            'nursery_location'=>'required_without:locations'
 
         ];
     }

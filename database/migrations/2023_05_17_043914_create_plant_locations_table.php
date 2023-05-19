@@ -13,14 +13,9 @@ return new class extends Migration
     {
         Schema::create('plant_locations', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->index();
-            $table->foreignId('user_id');
-            $table->foreignId('location_id'); 
-            $table->integer('batch');           
-            $table->text('detail')->fullText();
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
-            $table->string('plant_count')->nullable();
+            // $table->uuid('uuid')->index();
+            $table->foreignId('plant_id');
+            $table->foreignId('location_id');            
             $table->softDeletes();
             $table->timestamps();
         });

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('chemical_id');
             $table->string('location');
             $table->text('notes')->fullText();
-            $table->date('spray_date');            
-            $table->string('plant_count')->nullable();
+            $table->date('spray_date');
+            $table->string('total_plants')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

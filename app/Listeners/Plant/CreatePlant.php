@@ -32,7 +32,7 @@ class CreatePlant
         $plant = Plant::find($plant_id);
 
         $request->stage=='nursery' ? 
-        PlantLocationService::addNursery($plant_id,$request) :
+        PlantLocationService::addNursery($plant,$request) :
         PlantLocationService::addPlantLocation($plant,$request);
         
         $request->images ?

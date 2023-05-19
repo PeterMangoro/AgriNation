@@ -41,9 +41,23 @@
           id="stage"
           v-model="stage"
         >
-          <option value="Pesticide">Nursery</option>
-          <option value="Insecticide">Direct Planting</option>
+          <option value="nursery">Nursery</option>
+          <option value="direct_planting">Direct Planting</option>
         </select>
+      </div>
+
+      <div v-if="stage=='nursery'" class="col-span-6 sm:col-span-4">
+        <InputLabel for="nursery_location" value="Nursery Location" />
+        <TextInput
+          id="nursery_location"
+          v-model="nursery_location"
+          type="text"
+          class="block w-full mt-1"
+          required
+          autofocus
+          autocomplete="nursery_location"
+        />
+        <InputError class="mt-2" :message="form.errors.nursery_location" />
       </div>
 
       <div class="col-span-6 sm:col-span-4">
@@ -134,6 +148,7 @@ let stage = useStorage("stage", null);
 let location = useStorage("location", null);
 let date = useStorage("date", null);
 let batch = useStorage("batch", null);
+let nursery_location = useStorage("nursery_location", null);
 let total_plants = useStorage("total_plants", null);
 
 const form = useForm({
@@ -143,6 +158,7 @@ const form = useForm({
   location: location.value,
   date: date.value,
   batch: batch.value,
+  nursery_location: nursery_location.value,
   total_plants: total_plants.value,
   remember: true,
 });

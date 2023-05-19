@@ -18,9 +18,9 @@ return new class extends Migration
             $table->foreignId('plant_id');
             $table->string('location')->nullable();
             $table->text('detail')->fullText();
-            $table->date('start_date');
+            $table->date('plant_date');
             $table->date('end_date')->nullable();
-            $table->string('plant_count')->nullable();
+            $table->string('total_plants')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
