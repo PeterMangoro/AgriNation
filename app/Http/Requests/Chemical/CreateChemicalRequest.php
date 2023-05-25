@@ -27,7 +27,7 @@ class CreateChemicalRequest extends FormRequest
             'detail' => 'required|string',   
             'images.*' => 'nullable|mimes:png,jpg,gif,bmp,webp|max:2040',
             'images' => 'nullable',
-            'document' => 'nullable|required_with:document_title|mimes:csv,txt,xlx,xls,pdf,odt,doc,docx.rtf|max:5120',
+            'document' => 'nullable|required_with:document_title|mimes:csv,txt,xlx,xls,pdf,odt,doc,docx.rtf',
             'document_title' => 'nullable|required_with:document',         
         ];
     }
