@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Nursery extends Model
 {
     use HasFactory;
+
+    public function plant()
+    {
+        return $this->belongsTo(Plant::class);
+    }
 }

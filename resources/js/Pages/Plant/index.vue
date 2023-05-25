@@ -1,5 +1,5 @@
 <template>
-  <app-layout title="Locations">
+  <app-layout title="Plants">
     <template #header>
       <h2 class="text-xl font-semibold leading-tight text-sky-500">
         Shop Dashboard
@@ -12,39 +12,47 @@
       <div class="flex flex-wrap justify-between pb-2">
         <search-table
           class="pb-2"
-          route-name="locations.index"
-          placeholder="Search locations..."
+          route-name="plants.index"
+          placeholder="Search plants..."
           :searchValue="data.filters.search"
           show_per_page="true"
         />
         <span class="my-auto">
           <!-- <button-link
-              :link="route('locations.trashed.index')"
+              :link="route('plants.trashed.index')"
               class=" bg-slate-600"
-              >Deleted Locations</button-link
+              >Deleted Plants</button-link
             > -->
         </span>
       </div>
 
       <Table
-        heading="Location Table"
-        :pagination="data.locations.links"
-        path="locations.create"
-        button="Add new Location"
+        heading="Plant Table"
+        :pagination="data.plants.links"
+        path="plants.create"
+        button="Add new Plant"
       >
         <template #tableHead>
           <TableHead class="cursor-pointer" @click="sort('title')" name="title"
             >Title</TableHead
           >
-          <TableHead class="hidden sm:table-cell">Quantity</TableHead>
-          <TableHead class="hidden sm:table-cell">Description</TableHead>
-          <!-- <TableHead class="hidden sm:table-cell">Preview</TableHead> -->
+          <TableHead class="hidden sm:table-cell">Batch</TableHead>
+          
           <TableHead
             class="cursor-pointer hidden sm:table-cell"
-            @click="sort('price')"
-            name="price"
-            >Price</TableHead
+            @click="sort('plant_total')"
+            name="plant_total"
+            >Total</TableHead
           >
+          <TableHead
+            class="cursor-pointer hidden sm:table-cell"
+            @click="sort('plant_total')"
+            name="plant_total"
+            >Plant Date</TableHead
+          >
+          <TableHead class="hidden sm:table-cell">Description</TableHead>
+          <!-- <TableHead class="hidden sm:table-cell">Preview</TableHead> -->
+         
           <!-- <TableHead
               class="cursor-pointer"
               @click="sort('sale_status')"
@@ -56,16 +64,22 @@
         </template>
 
         <TableRow
-          v-for="location in data.locations.data"
-          :key="location.id"
+          v-for="plant in data.plants.data"
+          :key="plant.id"
         >
-          <TableData>{{ location.title }}</TableData>
+          <TableData>{{ plant.title }}</TableData>
           <TableData class="hidden sm:table-cell">{{
-            location.quantity
+            plant.batch
+          }}</TableData>
+           <TableData class="hidden sm:table-cell">{{
+            plant.total_plants
+          }}</TableData>
+          <TableData class="hidden sm:table-cell">{{
+            plant.date
           }}</TableData>
           <TableData class="w-auto hidden sm:table-cell">
             <p
-              v-for="(point, index) in location.detail"
+              v-for="(point, index) in plant.detail"
               :key="index"
               class="flex gap-1 line-clamp-1"
             >
@@ -73,28 +87,28 @@
             </p></TableData
           >
           <!-- <TableData class="hidden sm:table-cell"
-              ><img class="w-20 h-20 rounded" :src="location.latest_image"
+              ><img class="w-20 h-20 rounded" :src="plant.latest_image"
             /></TableData> -->
 
           <TableData class="hidden sm:table-cell">
-            {{ location.price }} <br>
-            <span v-if="location.usd_equivalent" class="font-bold"> ({{ location.usd_equivalent }})</span>
+            {{ plant.price }} <br>
+            <span v-if="plant.usd_equivalent" class="font-bold"> ({{ plant.usd_equivalent }})</span>
 
           </TableData>
           <!-- <TableData class="hidden sm:table-cell">
-              <span v-if="location.status == 'For Sale'">Available</span>
+              <span v-if="plant.status == 'For Sale'">Available</span>
               <span class="text-red-500" v-else>Not Available</span>
             </TableData> -->
           <TableData>
             <div class="flex space-x-1">
               <ButtonLink
                 class=""
-                :link="route('locations.edit', location.uuid)"
+                :link="route('plants.edit', plant.uuid)"
                 >View</ButtonLink
               >
               <Button
                 class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                @click="show_delete_confirmation(location.id)"
+                @click="show_delete_confirmation(plant.id)"
                 as="button"
                 type="button"
                 >Suspend</Button
@@ -103,7 +117,7 @@
           </TableData>
         </TableRow>
       </Table>
-      <span class="w-full" v-if="data.locations.data.length == 0">
+      <span class="w-full" v-if="data.plants.data.length == 0">
         <no-result-display />
       </span>
 
@@ -113,8 +127,8 @@
     <div v-if="show">
       <delete-confirmation
         :message="message"
-        path="locations.destroy"
-        :item="location_to_be_deleted"
+        path="plants.destroy"
+        :item="plant_to_be_deleted"
         @close="show = false"
       />
     </div>
@@ -139,18 +153,18 @@ const props = defineProps({
   data: Object,
 });
 const message =
-  "Are you sure you want to delete this location. Deleted locations will not be seen by customers, but can be found in the trash if you want to restore them";
+  "Are you sure you want to delete this plant. Deleted plants will not be seen by customers, but can be found in the trash if you want to restore them";
 
 const show = ref(false);
-const location_to_be_deleted = ref(null);
+const plant_to_be_deleted = ref(null);
 
-function show_delete_confirmation(location) {
+function show_delete_confirmation(plant) {
   show.value = true;
-  location_to_be_deleted.value = location;
+  plant_to_be_deleted.value = plant;
 }
 
 function sort(column) {
-  useSort(column, "locations.index");
+  useSort(column, "plants.index");
 }
 </script>
     

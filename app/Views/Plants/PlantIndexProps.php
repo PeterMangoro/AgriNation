@@ -14,7 +14,7 @@ class PlantIndexProps extends BaseView
     {
         return PlantDisplayData::toWebPage(
             ModelHandler::getPaginatedData(
-                new Plant()
+                Plant::with('garden')
                     
             )
         );

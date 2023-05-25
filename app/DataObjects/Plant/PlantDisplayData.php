@@ -9,6 +9,7 @@ class PlantDisplayData
         object $plants
     )
     {
+        // $plants->dd();
         return $plants->through(
             fn ($plant)=> PlantDisplay::data($plant)
         );

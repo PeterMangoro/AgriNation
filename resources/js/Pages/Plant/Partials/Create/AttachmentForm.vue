@@ -263,9 +263,14 @@ function createPlant() {
     errorBag: "createPlant",
     preserveScroll: true,
     onSuccess: () => {     
-      localStorage.removeItem("title");
-      localStorage.removeItem("type");     
+      localStorage.removeItem("location");
+      localStorage.removeItem("nursery_location");
+      localStorage.removeItem("date");     
       localStorage.removeItem("detail");
+      localStorage.removeItem("stage");
+      localStorage.removeItem("title");
+      localStorage.removeItem("batch");
+      localStorage.removeItem("total_plants");
     },
   });
 }

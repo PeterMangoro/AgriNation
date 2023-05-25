@@ -4,6 +4,7 @@ namespace App\Views\Dashboard;
 use App\Views\Shared\BaseView;
 use App\DataObjects\Shared\TotalOfData;
 use App\DataObjects\Dashboard\ExpenditureTotalData;
+use App\DataObjects\Dashboard\PlantTotalData;
 
 class DashboardIndexProps extends BaseView
 {
@@ -17,4 +18,8 @@ class DashboardIndexProps extends BaseView
         return TotalOfData::counts();        
     }
    
+    public function plantTotalOf()
+    {
+        return PlantTotalData::of();
+    }
 }

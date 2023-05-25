@@ -19,6 +19,8 @@ return new class extends Migration
             // $table->foreignId('location_id');
             $table->string('total_plants');
             $table->date('plant_date')->nullable();
+            $table->date('start_harvest_date')->nullable();
+            $table->date('end_harvest_date')->nullable();
             $table->text('detail')->fullText(); 
             $table->string('batch');
             // $table->date('actual_date')->nullable();

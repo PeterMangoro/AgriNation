@@ -37,8 +37,9 @@ class ExpenditureTotalData
             '$USD '. To2dp::of(($total+GetTotal::of('usd'))) .('(approx.)'),
             '$USD '. To2dp::of( GetTotal::of('usd')) ,
             //  To2dp::of(GetTotal::of('bond')) .' BOND',
-            To2dp::of(GetTotal::of('rtgs')) .' ZW(RTGS)',
             To2dp::of(GetTotal::of('rand')) .' RAND',
+            To2dp::of(GetTotal::of('rtgs')) .' ZW(RTGS)',
+            
             
 
         )

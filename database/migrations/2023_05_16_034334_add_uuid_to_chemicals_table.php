@@ -31,10 +31,10 @@ return new class extends Migration
              $table->softDeletes();
         });
 
-        Schema::table('chemicals', function (Blueprint $table) {
-            $table->uuid('uuid')->index();
-             $table->softDeletes();
-        });
+        // Schema::table('chemicals', function (Blueprint $table) {
+        //     $table->uuid('uuid')->index();
+        //      $table->softDeletes();
+        // });
 
         Schema::table('attachments', function (Blueprint $table) {
             $table->uuid('uuid')->index();

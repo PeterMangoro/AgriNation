@@ -19,4 +19,15 @@ class Time
     {
         return Carbon::parse($date)->toDayDateTimeString();
     }
+
+    public static function date($date)
+    {
+        // return Carbon::parse($date)->toFormattedDateString();
+        return Carbon::parse($date)->isoFormat('D MMMM YYYY');
+    }
+
+    public static function day($date)
+    {
+        return Carbon::parse($date)->toFormattedDayTimeString();
+    }
 }

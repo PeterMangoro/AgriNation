@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('chemicals', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->index();
             $table->string('title');
             $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();
             $table->string('type');   
             $table->integer('interval')->nullable();   
-            $table->string('detail')->fullText()->nullable();      
+            $table->text('detail')->fullText()->nullable();      
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
