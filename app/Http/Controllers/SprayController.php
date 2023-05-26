@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Handlers\Spray\SprayHandler;
-use App\Http\Requests\Spray\CreateSprayRequest;
 use App\Views\Sprays\SprayIndexProps;
+use App\Views\Sprays\SprayCreateProps;
+use App\Http\Requests\Spray\CreateSprayRequest;
 
 class SprayController extends Controller
 {
@@ -17,7 +18,9 @@ class SprayController extends Controller
 
    public function create()
    {
-      return inertia('Spray/create');
+      return inertia('Spray/create',[
+         'data' => new SprayCreateProps()
+      ]);
    }
 
    public function store(CreateSprayRequest $request)

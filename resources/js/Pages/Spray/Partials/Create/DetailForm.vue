@@ -31,113 +31,63 @@
 
         <input-error :message="form.errors.date" class="mt-2" />
       </div>
-      <div class="col-span-6 sm:col-span-4">
-        <InputLabel for="title" value="Title" />
-        <TextInput
-          id="title"
-          v-model="title"
-          type="text"
-          class="block w-full mt-1"
-          required
-          autofocus
-          autocomplete="title"
-        />
-        <InputError class="mt-2" :message="form.errors.title" />
+ 
+
+      <div  class="col-span-6 sm:col-span-6">
+        <InputLabel for="chemicals" value="Select Sprayed Chemical(s)" />
+        <InputError class="mt-2" :message="form.errors.chemicals" />
+
+        <span>
+          <CheckBoxGroup
+            v-for="chemical in chemicals"
+            :key="chemical.id"
+            :items="[
+              {
+                label: chemical.title,
+                id: chemical.id,
+              },
+            ]"
+            @on-change="onChemicalChange"
+          />
+        </span>
       </div>
 
-      <div class="col-span-6 sm:col-span-4">
-        <div class="flex">
-          <div>
-            <input-label for="currency" value="Currency" />
-            <select
-              class="inline-flex items-center px-auto py-2.5 mt-1 text-sm text-gray-500 bg-white border border-gray-300 shadow-sm rounded-l-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              name="rate"
-              id="rate"
-              v-model="currency"
-            >
-              <option value="usd">USD</option>
-              <option value="rand">RAND</option>
-              <option value="bond">BOND</option>
-              <option value="rtgs">RTGS</option>
-            </select>
-          </div>
+      <div  class="col-span-6 sm:col-span-6">
+        <InputLabel for="plants" value="Select Sprayed Plant(s)" />
+        <InputError class="mt-2" :message="form.errors.plants" />
 
-          <div :class="{ [`hidden`]: currency == 'usd' }">
-            <input-label for="rate" value="Rate" />
-            <text-input
-              id="rate"
-              ref="priceRate"
-              v-model="rate"
-              type="number"
-              step="0.01"
-              class="block w-full mt-1 rounded-none"
-              autocomplete="rate"
-            />
-          </div>
-
-          <div>
-            <input-label for="price" value="Price" />
-
-            <text-input
-              id="price"
-              ref="productPrice"
-              v-model="price"
-              type="number"
-              step="0.01"
-              class="block w-full mt-1 rounded-none rounded-r-md"
-              autocomplete="price"
-            />
-          </div>
-        </div>
-        <p
-          class="pt-1 dark:text-orange-500 text-sm"
-          :class="{ [`hidden`]: currency == 'usd' }"
-        >
-          <span>USD Equivalent:</span>
-          <span class="italic">{{ usdEquivalent() }}</span>
-        </p>
-      </div>
-      <div></div>
-      <div class="col-span-6 sm:col-span-2">
-        <InputLabel for="quantity" value="Quantity" />
-        <TextInput
-          id="quantity"
-          v-model="quantity"
-          type="number"
-          step="0.001"
-          min="0"
-          class="block w-full mt-1"
-          autofocus
-          autocomplete="quantity"
-        />
-        <InputError class="mt-2" :message="form.errors.quantity" />
+        <span>
+          <CheckBoxGroup
+            v-for="plant in plants"
+            :key="plant.id"
+            :items="[
+              {
+                label: plant.title,
+                id: plant.id,
+              },
+            ]"
+            @on-change="onPlantChange"
+          />
+        </span>
       </div>
 
-      <div class="col-span-6 sm:col-span-2">
-        <InputLabel for="units" value="Units" />
-        <TextInput
-          id="units"
-          v-model="units"
-          type="text"
-          class="block w-full mt-1"
-          autofocus
-          autocomplete="units"
-        />
-        <InputError class="mt-2" :message="form.errors.units" />
-      </div>
+      <div  class="col-span-6 sm:col-span-6">
+        <InputLabel for="locations" value="Select Sprayed Location(s)" />
+        <InputError class="mt-2" :message="form.errors.locations" />
 
-      <div class="col-span-6 sm:col-span-4">
-        <InputLabel for="shop" value="Shop" />
-        <TextInput
-          id="shop"
-          v-model="shop"
-          type="text"
-          class="block w-full mt-1"
-          required
-          autofocus
-          autocomplete="shop"
-        />
-        <InputError class="mt-2" :message="form.errors.shop" />
+        <span>
+          <CheckBoxGroup
+            v-for="location in locations"
+            :key="location.id"
+            :items="[
+              {
+                label: location.title,
+                id: location.id,
+              },
+            ]"
+            @on-change="onLocationChange"
+          />
+        </span>
       </div>
 
       <div class="col-span-6 sm:col-span-4">
@@ -180,34 +130,43 @@ import TextArea from "@/Components/Shared/Form/TextArea.vue";
 import InputError from "@/Components/Shared/Form/InputError.vue";
 import InputLabel from "@/Components/Shared/Form/InputLabel.vue";
 import { useStorage } from "@/Composables/useStorage";
+import CheckBoxGroup from "@/Components/Shared/Checkbox/check-box-group.vue";
 
 let date = useStorage("date", null);
-let title = useStorage("title", null);
-let quantity = useStorage("quantity", null);
-let units = useStorage("units", null);
-let price = useStorage("price", null);
 let detail = useStorage("detail", null);
-let shop = useStorage("shop", null);
-let currency = useStorage("currency", "usd");
-let rate = useStorage("rate", 1);
 
-function usdEquivalent() {
-  if (price.value == 0) {
-    return "$0.00";
-  }
-  return "$" + (price.value / rate.value).toFixed(2);
-}
+const props = defineProps({
+  chemicals: Object,
+  locations: Object,
+  plants: Object,
+});
+
+
+const onChemicalChange = (val) => {
+    val[0].checked === true
+    ? form.chemicals.push(val[0].id)
+    : form.chemicals.pop(val[0].id);
+};
+
+
+const onPlantChange = (val) => {
+   val[0].checked === true
+    ? form.plants.push(val[0].id)
+    : form.plants.pop(val[0].id);
+};
+
+const onLocationChange = (val) => {
+   val[0].checked === true
+    ? form.locations.push(val[0].id)
+    : form.locations.pop(val[0].id);
+};
 
 const form = useForm({
   date: date.value,
-  title: title.value,
-  quantity: quantity.value,
-  units: units.value,
-  price: price.value,
-  detail: detail.value,
-  shop: shop.value,
-  currency: currency.value,
-  rate: rate.value,
+  chemicals:[],
+  plants:[],
+  locations:[],  
+  detail: detail.value,  
   remember: true,
 });
 
@@ -216,15 +175,9 @@ function createSpray() {
     errorBag: "createSpray",
     preserveScroll: true,
     onSuccess: () => {
-      localStorage.removeItem("date");
-      localStorage.removeItem("title");
-      localStorage.removeItem("currency");
-      localStorage.removeItem("rate");
-      localStorage.removeItem("quantity");
-      localStorage.removeItem("units");
-      localStorage.removeItem("price");
+      localStorage.removeItem("date");      
       localStorage.removeItem("detail");
-      localStorage.removeItem("shop");
+     
     },
   });
 }

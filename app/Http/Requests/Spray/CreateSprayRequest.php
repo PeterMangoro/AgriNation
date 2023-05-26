@@ -11,7 +11,7 @@ class CreateSprayRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class CreateSprayRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'locations.*' => 'required|integer',
+            'chemicals.*' => 'required|integer',
+            'plants.*' => 'required|integer',
+            'date' => 'required|date',
+            'detail' => 'required|string',
         ];
     }
 }

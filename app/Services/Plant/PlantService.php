@@ -8,7 +8,8 @@ class PlantService
 {
     public static function create(object $request)
     {
-        return CreatePlantAction::handle($request);
+        return 
+        (new CreatePlantAction())->handle($request);
     }
 
     public static function update(object $request, object $plant)

@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->index();
             $table->foreignId('user_id');
-            $table->foreignId('chemical_id');
-            $table->string('location');
-            $table->text('notes')->fullText();
+            // $table->foreignId('chemical_id');
+            // $table->string('location');
+            $table->text('detail')->fullText();
             $table->date('spray_date');
-            $table->string('total_plants')->nullable();
+            // $table->string('total_plants')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

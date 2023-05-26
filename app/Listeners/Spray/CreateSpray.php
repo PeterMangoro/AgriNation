@@ -2,9 +2,12 @@
 
 namespace App\Listeners\Spray;
 
+use Illuminate\Support\Facades\DB;
 use App\Events\Spray\CreatingSpray;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Services\Spray\SprayService;
 use Illuminate\Queue\InteractsWithQueue;
+use App\Services\Spray\SprayComboService;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CreateSpray
 {
@@ -21,6 +24,10 @@ class CreateSpray
      */
     public function handle(CreatingSpray $event): void
     {
-        //
+        $request = $event->validated_request;
+     
+      SprayService::create($request);  
+       
+       
     }
 }
