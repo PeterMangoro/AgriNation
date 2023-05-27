@@ -15,6 +15,13 @@ class SprayIndexProps extends BaseView
         return SprayDisplayData::toWebPage(
             ModelHandler::getPaginatedData(
                 Spray::belongsToAuthUser()
+                            // ->with(
+                                // 'sprayedChemical.chemical',
+                                // 'sprayedLocation.location',
+                                // 'sprayedPlant.plant'
+                                // ),
+                                ,4
+                                
                     
             )
         );

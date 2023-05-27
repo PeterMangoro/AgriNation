@@ -33,18 +33,20 @@
         button="Add new Spray"
       >
         <template #tableHead>
-          <TableHead class="cursor-pointer" @click="sort('title')" name="title"
-            >Title</TableHead
-          >
-          <TableHead class="hidden sm:table-cell">Quantity</TableHead>
-          <TableHead class="hidden sm:table-cell">Description</TableHead>
-          <!-- <TableHead class="hidden sm:table-cell">Preview</TableHead> -->
           <TableHead
             class="cursor-pointer hidden sm:table-cell"
-            @click="sort('price')"
-            name="price"
-            >Price</TableHead
+            @click="sort('spray_date')"
+            name="spray_date"
+            >Date</TableHead
           >
+          <TableHead 
+            >Chemical(s)</TableHead
+          >
+          <TableHead class="hidden sm:table-cell">Plant(s)</TableHead>
+          <TableHead class="hidden sm:table-cell">Location(s)</TableHead>
+          <TableHead class="hidden sm:table-cell">Description</TableHead>
+          <!-- <TableHead class="hidden sm:table-cell">Preview</TableHead> -->
+         
           <!-- <TableHead
               class="cursor-pointer"
               @click="sort('sale_status')"
@@ -59,10 +61,26 @@
           v-for="spray in data.sprays.data"
           :key="spray.id"
         >
-          <TableData>{{ spray.title }}</TableData>
-          <TableData class="hidden sm:table-cell">{{
-            spray.quantity
-          }}</TableData>
+
+        <TableData>
+          {{ spray.spray_date }}
+        </TableData>
+          <TableData class="hidden sm:table-cell">
+            <p v-for="chemical in spray.chemicals" :key="chemical.id">
+- {{ chemical.title  }}
+            </p>
+          </TableData>
+          <TableData class="hidden sm:table-cell">
+            <p v-for="plant in spray.plants" :key="plant.id">
+- {{ plant.title  }}
+            </p>  
+          </TableData>
+
+          <TableData class="hidden sm:table-cell w-1/6">
+            <p v-for="location in spray.locations" :key="location.id">
+- {{ location.title  }}
+            </p>  
+          </TableData>
           <TableData class="w-auto hidden sm:table-cell">
             <p
               v-for="(point, index) in spray.detail"
@@ -76,11 +94,7 @@
               ><img class="w-20 h-20 rounded" :src="spray.latest_image"
             /></TableData> -->
 
-          <TableData class="hidden sm:table-cell">
-            {{ spray.price }} <br>
-            <span v-if="spray.usd_equivalent" class="font-bold"> ({{ spray.usd_equivalent }})</span>
-
-          </TableData>
+          
           <!-- <TableData class="hidden sm:table-cell">
               <span v-if="spray.status == 'For Sale'">Available</span>
               <span class="text-red-500" v-else>Not Available</span>

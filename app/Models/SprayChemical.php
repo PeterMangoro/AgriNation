@@ -18,4 +18,9 @@ class SprayChemical extends Model
     {
         return $this->belongsTo(Spray::class);
     }
+
+    public function chemical()
+    {
+        return $this->belongsTo(Chemical::class);
+    }
 }

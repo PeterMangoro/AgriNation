@@ -18,4 +18,9 @@ class SprayPlant extends Model
     {
         return $this->belongsTo(Spray::class);
     }
+
+    public function plant()
+    {
+        return $this->belongsTo(Plant::class);
+    }
 }

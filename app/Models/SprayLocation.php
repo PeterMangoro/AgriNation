@@ -18,4 +18,9 @@ class SprayLocation extends Model
     {
         return $this->belongsTo(Spray::class);
     }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
 }
