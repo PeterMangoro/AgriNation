@@ -11,6 +11,11 @@ class Location extends SharedModel
 {
     use HasFactory;
 
+    public function sprayed()
+    {
+        return $this->hasMany(SprayLocation::class);
+    }
+
     public function newEloquentBuilder($query): LocationBuilder
     {
         return new LocationBuilder($query);

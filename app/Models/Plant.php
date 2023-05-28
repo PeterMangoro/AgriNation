@@ -26,6 +26,11 @@ class Plant extends SharedModel
         return $this->hasMany(Nursery::class);
     }
 
+    public function sprayed()
+    {
+        return $this->hasMany(SprayPlant::class);
+    }
+
     public function newEloquentBuilder($query): PlantBuilder
     {
         return new PlantBuilder($query);

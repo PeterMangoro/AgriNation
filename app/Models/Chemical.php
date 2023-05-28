@@ -15,4 +15,9 @@ class Chemical extends SharedModel
     {
         return new ChemicalBuilder($query);
     }
+
+    public function sprayed()
+    {
+        return $this->hasMany(SprayChemical::class);
+    }
 }
