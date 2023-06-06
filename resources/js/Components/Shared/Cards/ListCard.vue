@@ -16,7 +16,7 @@
         <span v-if="total.rand">{{ total.rand }}</span>
 
         <span v-if="total.active_plants">{{ total.active_plants }} current plants</span>
-        <span v-if="total.currently_harvesting_plants">{{ total.currently_harvesting_plants }}currently_harvesting_plants</span>
+        <span v-if="total.currently_harvesting_plants">{{ total.currently_harvesting_plants }} currently harvesting plants</span>
         <span v-if="total.harvested_plants">{{ total.harvested_plants }}harvested_plants</span>
         <!-- <span v-if="total.rand">{{ total.rand }}</span> -->
       </p>
