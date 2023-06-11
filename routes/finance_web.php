@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ExpenditureController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Finance\IncomeController;
+use App\Http\Controllers\Finance\ExpenditureController;
 
 Route::middleware([
     'auth:sanctum',
@@ -9,4 +11,5 @@ Route::middleware([
     'verified',
 ])->group(function () {
             Route::resource('expenditures', ExpenditureController::class);
+            Route::resource('incomes', IncomeController::class);
 });

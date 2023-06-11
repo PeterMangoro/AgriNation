@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\SprayController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Spray\SprayController;
 
 Route::middleware([
     'auth:sanctum',

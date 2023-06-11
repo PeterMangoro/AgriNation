@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Garden;
 
 use App\Models\Location;
+use App\Http\Controllers\Controller;
 use App\Handlers\Location\LocationHandler;
 use App\Views\Locations\LocationEditProps;
 use App\Views\Locations\LocationIndexProps;

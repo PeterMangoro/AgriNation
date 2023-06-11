@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Spray;
 
 use App\Handlers\Spray\SprayHandler;
+use App\Http\Controllers\Controller;
 use App\Views\Sprays\SprayIndexProps;
 use App\Views\Sprays\SprayCreateProps;
 use App\Http\Requests\Spray\CreateSprayRequest;

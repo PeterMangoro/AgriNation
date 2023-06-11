@@ -36,7 +36,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group([
                     base_path('routes/chemical_web.php'),
-                    base_path('routes/expenditure_web.php'),
+                    base_path('routes/finance_web.php'),
                     base_path('routes/location_web.php'),
                     base_path('routes/plant_web.php'),
                     base_path('routes/spray_web.php'),

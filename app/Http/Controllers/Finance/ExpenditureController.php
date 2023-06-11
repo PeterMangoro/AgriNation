@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Finance;
 
+use App\Http\Controllers\Controller;
 use App\Handlers\Expenditure\ExpenditureHandler;
-use App\Http\Requests\Expenditure\CreateExpenditureRequest;
 use App\Views\Expenditures\ExpenditureIndexProps;
+use App\Http\Requests\Expenditure\CreateExpenditureRequest;
 
 class ExpenditureController extends Controller
 {

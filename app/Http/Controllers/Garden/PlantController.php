@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Garden;
 
 use App\Models\Plant;
 use App\Handlers\Plant\PlantHandler;
+use App\Http\Controllers\Controller;
 use App\Views\Plants\PlantEditProps;
 use App\Views\Plants\PlantIndexProps;
 use App\Views\Plants\PlantCreateProps;

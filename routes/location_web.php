@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\LocationController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Garden\LocationController;
 
 Route::middleware([
     'auth:sanctum',
