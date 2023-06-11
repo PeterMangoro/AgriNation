@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Expenditure;
+use App\Models\Price;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use App\Views\Dashboard\DashboardIndexProps;
 
@@ -14,6 +17,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+
         return inertia('Dashboard', [
             'data' => new DashboardIndexProps(),
         ]);

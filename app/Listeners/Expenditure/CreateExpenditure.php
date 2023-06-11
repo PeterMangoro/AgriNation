@@ -27,7 +27,7 @@ class CreateExpenditure
         $request = $event->validated_request;
         DB::transaction(function () use ($request) {
         $expenditure_id = ExpenditureService::create($request);  
-        PriceService::create($request,$expenditure_id);   
+        PriceService::create($request,'Expenditure',$expenditure_id);   
         }); 
     }
 }

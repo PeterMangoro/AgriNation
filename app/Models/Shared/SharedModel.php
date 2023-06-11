@@ -7,6 +7,7 @@ use App\Traits\UUID;
 use App\Models\Attachment;
 use App\Casts\MakePointsCast;
 use App\Builders\Shared\SharedScopes;
+use App\Models\Price;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,12 +16,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class SharedModel extends Model
 {
-    use HasFactory;  
+    use HasFactory;
     use SharedScopes;
     use UUID;
     use SoftDeletes;
 
-    protected $casts = [        
+    protected $casts = [
         'detail' => MakePointsCast::class,
     ];
 
@@ -31,6 +32,11 @@ class SharedModel extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function prices(): MorphMany
+    {
+        return $this->morphMany(Price::class, 'priceable');
     }
 
     public function attachments(): MorphMany
@@ -62,5 +68,4 @@ class SharedModel extends Model
             ->where('type', 'document')
             ->onlyTrashed();
     }
-
 }

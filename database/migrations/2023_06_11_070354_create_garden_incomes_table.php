@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prices', function (Blueprint $table) {
+        Schema::create('garden_incomes', function (Blueprint $table) {
             $table->id();
-            // $table->uuid('uuid')->index();
-            $table->morphs('priceable');
-            $table->string('amount');
-            $table->string('currency');
-            $table->softDeletes();
+            $table->foreignId('garden_id');
+            $table->foreignId('income_id');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prices');
+        Schema::dropIfExists('garden_incomes');
     }
 };

@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Price extends Model
 {
     use HasFactory;
 
-    public function expenditure()
+    public function priceable(): MorphTo
     {
-        return $this->belongsTo(Expenditure::class);
+        return $this->morphTo();
     }
 
     public function rate()
