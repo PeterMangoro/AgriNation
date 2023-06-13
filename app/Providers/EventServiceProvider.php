@@ -14,6 +14,7 @@ use App\Events\{
     Chemical\CreatingChemical,   
     Location\CreatingLocation,  
     Plant\CreatingPlant, 
+    Income\CreatingIncome, 
 };
 
 // CreatingListeners
@@ -23,6 +24,7 @@ use App\Listeners\{
     Chemical\CreateChemical,  
     Location\CreateLocation, 
     Plant\CreatePlant,
+    Income\CreateIncome,
 };
 
 // UpdatingEvents
@@ -32,6 +34,7 @@ use App\Events\{
     Chemical\UpdatingChemical,  
     Location\UpdatingLocation,  
     Plant\UpdatingPlant,
+    Income\UpdatingIncome,
 };
 
 // UpdatingListeners
@@ -41,6 +44,7 @@ use App\Listeners\{
     Chemical\UpdateChemical, 
     Location\UpdateLocation,   
     Plant\UpdatePlant, 
+    Income\UpdateIncome, 
 };
 
 class EventServiceProvider extends ServiceProvider
@@ -76,6 +80,10 @@ class EventServiceProvider extends ServiceProvider
             CreatePlant::class,
         ],
 
+        CreatingIncome::class => [
+            CreateIncome::class,
+        ],
+
         //Updating
         UpdatingChemical::class => [
             UpdateChemical::class,
@@ -87,6 +95,10 @@ class EventServiceProvider extends ServiceProvider
 
         UpdatingPlant::class => [
             UpdatePlant::class,
+        ],
+
+        UpdatingIncome::class => [
+            UpdateIncome::class,
         ],
     ];
 

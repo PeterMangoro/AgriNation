@@ -21,9 +21,9 @@ class PlantTotalData
     //    $total_plants = Garden::sum('total_plants');
         return new static (
             Garden::sum('total_plants'),
-            Garden::whereNull('end_harvest_date')->sum('total_plants'),
-            Garden::whereNotNull('start_harvest_date')->whereNull('end_harvest_date')->sum('total_plants'),
-            Garden::whereNotNull('end_harvest_date')->sum('total_plants'),
+            Garden::whereActive()->sum('total_plants'),
+            Garden::currentlyHarvesting()->sum('total_plants'),
+            Garden::harvested()->sum('total_plants'),
             // Garden::whereNotNull('end_harvest_date')->where('end_harvest_date','>',)->sum('total_plants'),
         )
        
