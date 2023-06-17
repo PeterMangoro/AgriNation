@@ -7,7 +7,7 @@
             <!-- <span class="inline-block px-2 py-1 ml-auto text-xs text-gray-500 rounded-full bg-gray-50">30 Days</span> -->
           </div>
           <h2  class="mb-2 text-3xl font-bold">{{ total }}</h2>
-          <span class="flex space-x-2">
+          <div class="flex space-x-2 justify-center my-auto">
             <Link v-if="add_path"
             :href="route(add_path,add_parameter)"
             class="flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
@@ -38,7 +38,7 @@
                   :tip=more_tip
               />
             </Link>
-          </span>
+          </div>
         </div>
  </div>
 </template>

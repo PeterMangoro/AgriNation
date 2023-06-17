@@ -1,6 +1,6 @@
 <template>
   <div class="mb-2">
-    <div class="p-6 bg-white border rounded shadow-xl">
+    <div class="p-6 bg-white h-56 rounded shadow-xl">
       <div class="flex mb-2">
         <h3 class="font-semibold text-gray-600">{{ title }}</h3>
         <!-- <span class="inline-block px-2 py-1 ml-auto text-xs text-gray-500 rounded-full bg-gray-50">30 Days</span> -->
@@ -20,7 +20,7 @@
         <span v-if="total.harvested_plants">{{ total.harvested_plants }}harvested_plants</span>
         <!-- <span v-if="total.rand">{{ total.rand }}</span> -->
       </p>
-      <span class="flex space-x-2">
+      <span class="flex space-x-2 justify-center p-3">
         <Link
           v-if="add_path"
           :href="route(add_path, add_parameter)"

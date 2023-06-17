@@ -17,7 +17,20 @@ class PlantDisplay
     }
     public static function data($plant)
     {
-        // dd(($plant->garden[0]->batch));
+        
+        if (count($plant->garden) ) {
+            // dd($plant->garden);
+            $plants = $plant->garden;
+           $arr= ($plants->map(fn ($plant)=>[
+               'total'=> $plant->total_plants,
+            ]));
+           
+        
+            $total_plants = $arr->sum('total');
+        }
+        else {
+            $total_plants=  $plant->nursery[0]->total_plants;
+        }
 
         return new self(
             $plant->title,
@@ -27,8 +40,7 @@ class PlantDisplay
             $plant->uuid,
             count($plant->garden)
             ? Time::date($plant->garden[0]->plant_date) : Time::date($plant->nursery[0]->plant_date),
-            count($plant->garden) 
-            ? $plant->garden[0]->total_plants : $plant->nursery[0]->total_plants
+            $total_plants
         );
     }
 }

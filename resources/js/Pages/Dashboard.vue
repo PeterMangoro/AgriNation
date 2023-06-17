@@ -23,8 +23,9 @@ const props = defineProps({
         <div class="overflow-hidden shadow-xl sm:rounded-lg p-3">
           <div class="flex flex-wrap justify-evenly gap-4">
             <list-card
+            class="shadow-lg shadow-green-500 rounded "
               title="Approx. Money Income"
-              :total="data.expenditure"
+              :total="data.income"
               add_path="incomes.create"
               more_path="incomes.index"
               add_tip="Click to Add a new Income"
@@ -32,6 +33,7 @@ const props = defineProps({
             />
 
             <list-card
+            class="shadow-lg shadow-red-500 rounded"
               title="Approx. Money Spent"
               :total="data.expenditure"
               add_path="expenditures.create"

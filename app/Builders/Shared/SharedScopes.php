@@ -93,4 +93,13 @@ trait SharedScopes
             ]);
     }
    
+    public function scopeWhereCurrencyIs($query,string $currency)
+    {
+        return $query->whereRelation('price','prices.currency',$currency);
+    }
+
+    public function scopeGetTotalOf($query,string $currency)
+    {
+        return $query->whereCurrencyIs($currency)->with('price')->get()->sum('price.amount');
+    }
 }
