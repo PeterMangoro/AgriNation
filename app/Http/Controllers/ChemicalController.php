@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chemical;
 use App\Handlers\Chemical\ChemicalHandler;
 use App\Views\Chemicals\ChemicalEditProps;
 use App\Views\Chemicals\ChemicalIndexProps;

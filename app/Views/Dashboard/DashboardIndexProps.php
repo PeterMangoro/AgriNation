@@ -4,10 +4,10 @@ namespace App\Views\Dashboard;
 use App\Views\Shared\BaseView;
 use App\DataObjects\Shared\TotalOfData;
 use App\DataObjects\Dashboard\PlantTotalData;
-use App\DataObjects\Dashboard\SprayTotalData;
 use App\DataObjects\Dashboard\IncomeTotalData;
 use App\DataObjects\Dashboard\ExpenditureTotalData;
-use App\DataObjects\Dashboard\Spray\SprayTotalData as SpraySprayTotalData;
+use App\DataObjects\Dashboard\Spray\SprayTotalData;
+use App\DataObjects\Dashboard\Fertilizer\ApplicationTotalData;
 
 class DashboardIndexProps extends BaseView
 {
@@ -35,10 +35,22 @@ class DashboardIndexProps extends BaseView
     {
         return [
 
-            'chemicals'=>SpraySprayTotalData::ofChemical(),
-            'plants'=>SpraySprayTotalData::ofPlant(),
-            'locations'=>SpraySprayTotalData::ofLocation(),
+            'chemicals'=>SprayTotalData::ofChemical(),
+            'plants'=>SprayTotalData::ofPlant(),
+            'locations'=>SprayTotalData::ofLocation(),
         
         ];
+    }
+
+
+    public function totalApplicationOf()
+    {
+        // return [
+
+        //     'chemicals'=>ApplicationTotalData::ofChemical(),
+        //     'plants'=>ApplicationTotalData::ofPlant(),
+        //     'locations'=>ApplicationTotalData::ofLocation(),
+        
+        // ];
     }
 }

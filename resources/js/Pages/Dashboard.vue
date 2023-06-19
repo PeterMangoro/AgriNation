@@ -74,8 +74,16 @@ const props = defineProps({
               :total="data.total_of.chemicals"
               add_path="chemicals.create"
               more_path="chemicals.index"
-              add_tip="Click to Add a new Employee"
-              more_tip="Click to view all your available employees"
+              add_tip="Click to Add a new Chemical"
+              more_tip="Click to view all your available chemicals"
+            />
+            <dashboard-card
+              title="Fertilizer Library"
+              :total="data.total_of.chemicals"
+              add_path="fertilizers.create"
+              more_path="fertilizers.index"
+              add_tip="Click to Add a new Fertilizer"
+              more_tip="Click to view all your available fertilizers"
             />
             <dashboard-card
               title="Total Potatoes Grown"

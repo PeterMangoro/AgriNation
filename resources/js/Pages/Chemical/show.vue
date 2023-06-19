@@ -1,3 +1,3 @@
 <template>
-    This is Plant edit page
+    This is Fertilizer edit page
 </template>
