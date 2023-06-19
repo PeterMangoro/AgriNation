@@ -62,7 +62,7 @@ const props = defineProps({
             />
             
             <dashboard-card
-              title="Total Sprays"
+              title="Total Chemical Sprays"
               :total="data.total_of.sprays"
               add_path="sprays.create"
               more_path="sprays.index"
@@ -79,14 +79,14 @@ const props = defineProps({
             />
             <dashboard-card
               title="Fertilizer Library"
-              :total="data.total_of.chemicals"
+              :total="data.total_of.fertilizers"
               add_path="fertilizers.create"
               more_path="fertilizers.index"
               add_tip="Click to Add a new Fertilizer"
               more_tip="Click to view all your available fertilizers"
             />
             <dashboard-card
-              title="Total Potatoes Grown"
+              title="Total Fertilizer Applications"
               total="12"
               add_path="expenditures.index"
               more_path="expenditures.index"
