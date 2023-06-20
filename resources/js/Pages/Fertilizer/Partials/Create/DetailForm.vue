@@ -36,17 +36,17 @@
       <div class="col-span-6 sm:col-span-4">
         <input-label for="type" value="Family" />
         <select
-          class=" rounded-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          class=" rounded-md focus:border-indigo-300 focus:ring bg-indigo-50 focus:ring-indigo-200 focus:ring-opacity-50"
           name="rate"
           id="rate"
           v-model="type"
         >
-          <option value="Pesticide">Pesticide</option>
-          <option value="Insecticide">Insecticide</option>
-          <option value="Fungicide">Fungicide</option>
-          <option value="Herbicide">Herbicide</option>
+          <option value="Basal">Basal</option>
+          <option value="Top">Top</option>
+         <option value="Manure">Manure</option>
+          <!--  <option value="Herbicide">Herbicide</option>
           <option value="Molluscicide">Molluscicide</option>
-          <option value="Algaecide">Algaecide</option>
+          <option value="Algaecide">Algaecide</option> -->
         </select>
       </div>
 

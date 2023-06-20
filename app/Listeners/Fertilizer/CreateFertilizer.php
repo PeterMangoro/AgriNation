@@ -2,7 +2,7 @@
 
 namespace App\Listeners\Fertilizer;
 
-use App\Models\Fertilizer;
+use App\Models\Fertilizer\Fertilizer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Events\Fertilizer\CreatingFertilizer;
@@ -27,13 +27,12 @@ class CreateFertilizer
     {
         $request = $event->validated_request;
         DB::transaction(function () use ($request) {
-        $fertilizer_id = FertilizerService::create($request);
-        $fertilizer = Fertilizer::find($fertilizer_id);
-        $request->images ?
-        AttachmentService::addImages($request->images, $fertilizer, 'fertilizer',600) : null;    
-        $request->document ?
-        AttachmentService::addDocument($request->document, $fertilizer, 'fertilizer') : null;    
-        
-        }); 
+            $fertilizer_id = FertilizerService::create($request);
+            $fertilizer = Fertilizer::find($fertilizer_id);
+            $request->images ?
+                AttachmentService::addImages($request->images, $fertilizer, 'fertilizer', 600) : null;
+            $request->document ?
+                AttachmentService::addDocument($request->document, $fertilizer, 'fertilizer') : null;
+        });
     }
 }

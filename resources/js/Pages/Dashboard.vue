@@ -87,11 +87,11 @@ const props = defineProps({
             />
             <dashboard-card
               title="Total Fertilizer Applications"
-              total="12"
-              add_path="expenditures.index"
-              more_path="expenditures.index"
-              add_tip="Click to Add a new Employee"
-              more_tip="Click to view all your available employees"
+              :total="data.total_of.fertilizations"
+              add_path="fertilizations.create"
+              more_path="fertilizations.index"
+              add_tip="Click to Add a new Fertilization"
+              more_tip="Click to view all your available Fertilizations"
             />
             <dashboard-card
               title="Approx Onion Grown"

@@ -23,7 +23,8 @@ class DashboardIndexProps extends BaseView
 
     public function totalOf()
     {
-        return TotalOfData::counts();        
+        return TotalOfData::counts();    
+            
     }
    
     public function plantTotalOf()
@@ -45,12 +46,12 @@ class DashboardIndexProps extends BaseView
 
     public function totalApplicationOf()
     {
-        // return [
+        return [
 
-        //     'chemicals'=>ApplicationTotalData::ofChemical(),
-        //     'plants'=>ApplicationTotalData::ofPlant(),
-        //     'locations'=>ApplicationTotalData::ofLocation(),
+            'fertilizers'=>ApplicationTotalData::ofFertilizer(),
+            'plants'=>ApplicationTotalData::ofPlant(),
+            'locations'=>ApplicationTotalData::ofLocation(),
         
-        // ];
+        ];
     }
 }

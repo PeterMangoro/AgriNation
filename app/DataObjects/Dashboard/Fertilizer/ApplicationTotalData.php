@@ -4,17 +4,18 @@ namespace App\DataObjects\Dashboard\Fertilizer;
 
 use App\Models\Plant;
 use App\Models\Chemical;
+use App\Models\Fertilizer\Fertilizer;
 use App\Models\Location;
 
 class ApplicationTotalData
 {
-    public static function ofChemical()
+    public static function ofFertilizer()
     {
-        $chemicals = Chemical::get();
+        $fertilizers = Fertilizer::get();
 
-        return  $chemicals->map(fn ($chemical) => [
-            'chemical' => $chemical->title,
-            'total' => $chemical->applied()->count(),
+        return  $fertilizers->map(fn ($fertilizer) => [
+            'fertilizer' => $fertilizer->title,
+            'total' => $fertilizer->fertilized()->count(),
         ]);
     }
 
@@ -24,7 +25,7 @@ class ApplicationTotalData
 
         return  $locations->map(fn ($location) => [
             'location' => $location->title,
-            'total' => $location->applied()->count(),
+            'total' => $location->fertilized()->count(),
         ]);
     }
 
@@ -34,7 +35,7 @@ class ApplicationTotalData
 
         return  $plants->map(fn ($plant) => [
             'plant' => $plant->title,
-            'total' => $plant->applied()->count(),
+            'total' => $plant->fertilized()->count(),
         ]);
     }
 }

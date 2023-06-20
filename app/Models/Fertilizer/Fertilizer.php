@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Fertilizer;
 
-use App\Builders\FertilizerBuilder;
 use App\Models\Shared\SharedModel;
-use Illuminate\Database\Eloquent\Model;
+use App\Builders\FertilizerBuilder;
+use App\Models\Fertilizer\FertilizationFertilizer;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Fertilizer extends SharedModel
 {
@@ -16,8 +17,8 @@ class Fertilizer extends SharedModel
         return new FertilizerBuilder($query);
     }
 
-    public function applied()
+    public function fertilized()
     {
-        return $this->hasMany(SprayFertilizer::class);
+        return $this->hasMany(FertilizationFertilizer::class);
     }
 }

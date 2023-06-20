@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sprays', function (Blueprint $table) {
+        Schema::create('fertilization_locations', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->index();
-            $table->foreignId('user_id');            
-            $table->text('detail')->fullText();
-            $table->date('spray_date');           
-            $table->softDeletes();
+            $table->foreignId('location_id');
+            $table->foreignId('fertilization_id');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sprays');
+        Schema::dropIfExists('fertilization_locations');
     }
 };

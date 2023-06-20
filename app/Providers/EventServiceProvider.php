@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Event;
 use App\Events\{    
     Expenditure\CreatingExpenditure,
     Spray\CreatingSpray,
+    Fertilization\CreatingFertilization,
     Chemical\CreatingChemical,  
     Fertilizer\CreatingFertilizer,   
     Location\CreatingLocation,  
@@ -22,6 +23,7 @@ use App\Events\{
 use App\Listeners\{    
     Expenditure\CreateExpenditure,
     Spray\CreateSpray,
+    Fertilization\CreateFertilization,
     Chemical\CreateChemical, 
     Fertilizer\CreateFertilizer,  
     Location\CreateLocation, 
@@ -33,6 +35,7 @@ use App\Listeners\{
 use App\Events\{    
     Expenditure\UpdatingExpenditure,
     Spray\UpdatingSpray,
+    Fertilization\UpdatingFertilization,
     Chemical\UpdatingChemical, 
     Fertilizer\UpdatingFertilizer,  
     Location\UpdatingLocation,  
@@ -44,6 +47,7 @@ use App\Events\{
 use App\Listeners\{    
     Expenditure\UpdateExpenditure,
     Spray\UpdateSpray,
+    Fertilization\UpdateFertilization,
     Chemical\UpdateChemical, 
     Fertilizer\UpdateFertilizer,
     Location\UpdateLocation,   
@@ -70,6 +74,10 @@ class EventServiceProvider extends ServiceProvider
 
         CreatingSpray::class => [
             CreateSpray::class,
+        ],
+
+        CreatingFertilization::class => [
+            CreateFertilization::class,
         ],
 
         CreatingChemical::class => [
@@ -111,6 +119,14 @@ class EventServiceProvider extends ServiceProvider
 
         UpdatingIncome::class => [
             UpdateIncome::class,
+        ],
+
+        UpdatingSpray::class => [
+            UpdateSpray::class,
+        ],
+
+        UpdatingFertilization::class => [
+            UpdateFertilization::class,
         ],
     ];
 

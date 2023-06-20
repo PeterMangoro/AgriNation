@@ -1,30 +1,25 @@
 <?php
 
-namespace App\Events\Fertilizer;
+namespace App\Events\Fertilization;
 
-use App\Models\Fertilizer\Fertilizer;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
-class UpdatingFertilizer
+class CreatingFertilization
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public object $fertilizer;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(public object $validated_request, public string $uuid)
+    public function __construct(public object $validated_request)
     {
-        $fertilizer = Fertilizer::whereUUIDmatches($uuid)->first();
         $this->validated_request = $validated_request;
-        $this->fertilizer = $fertilizer;
     }
 
     /**
