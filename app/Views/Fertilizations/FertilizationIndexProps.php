@@ -16,10 +16,11 @@ class FertilizationIndexProps extends BaseView
         return FertilizationDisplayData::toWebPage(
             ModelHandler::getPaginatedData(
                 Fertilization::belongsToAuthUser()
+                ->orderBy('fertilization_date','desc')                
                             // ->with(
-                                // 'fertilizationedChemical.chemical',
-                                // 'fertilizationedLocation.location',
-                                // 'fertilizationedPlant.plant'
+                                // 'usedFertilizer.fertilizer',
+                                // 'fertilizedLocation.location',
+                                // 'fertilizedPlant.plant'
                                 // ),
                                 ,4
                                 

@@ -28,13 +28,13 @@ class CreatePlantRequest extends FormRequest
             'date' => 'required|date',
             'batch' => 'required|max:255',
             'total_plants' => 'required|max:255',
-            'images.*' => 'nullable|mimes:png,jpg,gif,bmp,webp|max:2040',
+            'images.*' => 'nullable|mimes:png,jpg,gif,bmp,webp',
             'images' => 'nullable',
             'document' => 'nullable|required_with:document_title|mimes:csv,txt,xlx,xls,pdf,odt,doc,docx.rtf|max:5120',
             'document_title' => 'nullable|required_with:document',
             'locations.*' => 'required|integer',
             'locations' => 'required_without:nursery_location', #validate if array exists
-            'nursery_location'=>'required_without:locations'
+            'nursery_location' => 'required_without:locations'
 
         ];
     }

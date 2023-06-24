@@ -24,11 +24,11 @@ class CreateFertilizerRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'type' => 'required|max:255',
-            'detail' => 'required|string',   
-            'images.*' => 'nullable|mimes:png,jpg,gif,bmp,webp|max:2040',
+            'detail' => 'required|string',
+            'images.*' => 'nullable|mimes:png,jpg,gif,bmp,webp',
             'images' => 'nullable',
             'document' => 'nullable|required_with:document_title|mimes:csv,txt,xlx,xls,pdf,odt,doc,docx.rtf',
-            'document_title' => 'nullable|required_with:document',         
+            'document_title' => 'nullable|required_with:document',
         ];
     }
 }
