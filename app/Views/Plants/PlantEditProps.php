@@ -1,29 +1,28 @@
 <?php
-namespace App\Views\Chemicals;
+namespace App\Views\Plants;
 
-use App\Models\Chemical;
+use App\Models\Plant;
 use App\Handlers\Shared\ModelHandler;
-use App\DataObjects\Chemical\Partials\ChemicalForUpdate;
-use App\Views\Shared\BaseView;
+use App\DataObjects\Plant\Partials\PlantForUpdate;
 
-class ChemicalEditProps extends BaseView
+class PlantEditProps
 {
     public function __construct(
         public string $uuid,
-        public  ?object $chemical=null
+        public  ?object $plant=null
 
     )
     {
-        $this->chemical = ChemicalForUpdate::from(
+        $this->plant = PlantForUpdate::from(
             ModelHandler::getModelForEdit(
-                new Chemical(),
+                new Plant(),
                 $this->uuid
             ));
       
     }
 
-    public function chemical()
+    public function plant()
     {       
-        return $this->chemical();
+        return $this->plant();
     }
 }

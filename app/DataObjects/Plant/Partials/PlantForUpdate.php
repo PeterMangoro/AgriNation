@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataObjects\date\Partials;
+namespace App\DataObjects\Plant\Partials;
 
 use App\ValueObjects\Attachments;
 use Carbon\Carbon;
@@ -16,9 +16,9 @@ class PlantForUpdate
         public  readonly array $detail,
         public  readonly int $id,
         public  readonly string $title,
-        public  readonly string $date,
-        public  readonly string $batch,
-        public  readonly string $total,
+        public  readonly ?string $date,
+        public  readonly ?string $batch,
+        public  readonly ?string $total,
         public  readonly object $locations,
     ) {
     }

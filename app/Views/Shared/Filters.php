@@ -10,6 +10,7 @@ class Filters
             'search' => request('search'),
             'column' => request('column'),
             'direction' => request('direction'),
+            'show' => request('show') ?: 'accounts',
         ];
     }
 

@@ -1,6 +1,7 @@
 <?php
 namespace App\Views\Dashboard;
 
+use App\Views\Shared\Filters;
 use App\Views\Shared\BaseView;
 use App\DataObjects\Shared\TotalOfData;
 use App\DataObjects\Dashboard\PlantTotalData;
@@ -53,5 +54,10 @@ class DashboardIndexProps extends BaseView
             'locations'=>ApplicationTotalData::ofLocation(),
         
         ];
+    }
+
+    public function filters()
+    {
+        return Filters::filters();
     }
 }

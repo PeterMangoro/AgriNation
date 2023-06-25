@@ -1,19 +1,19 @@
 <template>
-  <app-layout title="Edit Location">
-    <!-- <bread-crumb :id="data.location.id" :routes="routes" /> -->
+  <app-layout title="Edit Plant">
+    <!-- <bread-crumb :id="data.plant.id" :routes="routes" /> -->
 
     <div>
       <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div>
-          <update-location-information :location="data.location"  />
+          <update-plants-information :plant="data.plant"  />
           <JetSectionBorder />
         </div>
         <div>
-          <update-location-images :location="data.location"  />
+          <!-- <update-plant-images :plant="data.plant"  /> -->
           <JetSectionBorder />
         </div>
         <div>
-          <update-location-documents :location="data.location"  />
+          <!-- <update-plant-documents :plant="data.plant"  /> -->
           <JetSectionBorder />
         </div>
       </div>
@@ -23,9 +23,9 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { router  } from "@inertiajs/vue3";
-import UpdateLocationInformation from "@/Pages/Location/Partials/Edit/UpdateLocationInformation.vue";
-import UpdateLocationImages from "@/Pages/Location/Partials/Edit/UpdateLocationImages.vue";
-import UpdateLocationDocuments from "@/Pages/Location/Partials/Edit/UpdateLocationDocuments.vue";
+import UpdatePlantsInformation from "@/Pages/Plant/Partials/Edit/UpdatePlantsInformation.vue";
+// import UpdatePlantImages from "@/Pages/Plant/Partials/Edit/UpdatePlantImages.vue";
+// import UpdatePlantDocuments from "@/Pages/Plant/Partials/Edit/UpdatePlantDocuments.vue";
 import JetSectionBorder from "@/Components/SectionBorder.vue";
 
 const props = defineProps({
@@ -44,12 +44,12 @@ const deleteImage = (attachmentId) => {
 
 const routes = [
   {
-    name: "User Locations",
-    link: "locations.index",
+    name: "User Plants",
+    link: "plants.index",
   },
   {
-    name: "Location-Edit",
-    link: "locations.edit",
+    name: "Plant-Edit",
+    link: "plants.edit",
   },
 ];
 </script>

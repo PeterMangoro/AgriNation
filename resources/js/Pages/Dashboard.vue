@@ -4,12 +4,12 @@ import DashboardCard from "@/Components/Shared/Cards/DashboardCard.vue";
 import ListCard from "@/Components/Shared/Cards/ListCard.vue";
 
 const props = defineProps({
-  data:Object
+  data:Object, 
 })
 </script>
 
 <template>
-  <AppLayout title="Dashboard">
+  <AppLayout title="Dashboard" >
     <template #header>
       <h2
         class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"
@@ -18,11 +18,12 @@ const props = defineProps({
       </h2>
     </template>
 
-    <div class="py-12">
+    <div class="py-auto">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="overflow-hidden shadow-xl sm:rounded-lg p-3">
+        <div class="overflow-hidden  sm:rounded-lg p-3">
           <div class="flex flex-wrap justify-evenly gap-4">
             <list-card
+            v-if="data.filters.show=='accounts'"
             class="shadow-lg shadow-green-500 rounded "
               title="Approx. Money Income"
               :total="data.income"
@@ -33,6 +34,7 @@ const props = defineProps({
             />
 
             <list-card
+            v-if="data.filters.show=='accounts'"
             class="shadow-lg shadow-red-500 rounded"
               title="Approx. Money Spent"
               :total="data.expenditure"
@@ -43,6 +45,7 @@ const props = defineProps({
             />
 
             <list-card
+            v-if="data.filters.show=='resources'"
               title="Approx. Total Plants"
               :total="data.plant_total_of"
               add_path="plants.create"
@@ -53,6 +56,7 @@ const props = defineProps({
 
 
             <dashboard-card
+            v-if="data.filters.show=='resources'"
               title="Total Arable Locations"
               :total="data.total_of.locations"
               add_path="locations.create"
@@ -62,6 +66,7 @@ const props = defineProps({
             />
             
             <dashboard-card
+            v-if="data.filters.show=='chemicals'"
               title="Total Chemical Sprays"
               :total="data.total_of.sprays"
               add_path="sprays.create"
@@ -70,6 +75,7 @@ const props = defineProps({
               more_tip="Click to view all your sprays"
             />
             <dashboard-card
+            v-if="data.filters.show=='chemicals'"
               title="Chemical Library"
               :total="data.total_of.chemicals"
               add_path="chemicals.create"
@@ -78,14 +84,16 @@ const props = defineProps({
               more_tip="Click to view all your available chemicals"
             />
             <dashboard-card
+            v-if="data.filters.show=='chemicals'"
               title="Fertilizer Library"
               :total="data.total_of.fertilizers"
               add_path="fertilizers.create"
               more_path="fertilizers.index"
-              add_tip="Click to Add a new Fertilizer"
+              add_tip="Click to Add a new Fertilizer" plait 
               more_tip="Click to view all your available fertilizers"
             />
             <dashboard-card
+            v-if="data.filters.show=='chemicals'"
               title="Total Fertilizer Applications"
               :total="data.total_of.fertilizations"
               add_path="fertilizations.create"
@@ -93,14 +101,7 @@ const props = defineProps({
               add_tip="Click to Add a new Fertilization"
               more_tip="Click to view all your available Fertilizations"
             />
-            <dashboard-card
-              title="Approx Onion Grown"
-              total="12"
-              add_path="expenditures.index"
-              more_path="expenditures.index"
-              add_tip="Click to Add a new Employee"
-              more_tip="Click to view all your available employees"
-            />
+           
           </div>
         </div>
       </div>
