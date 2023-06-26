@@ -2,10 +2,9 @@
 
 namespace App\DataObjects\Dashboard\Fertilizer;
 
-use App\Models\Plant;
-use App\Models\Chemical;
+use App\Models\Garden\Plant;
+use App\Models\Garden\Location;
 use App\Models\Fertilizer\Fertilizer;
-use App\Models\Location;
 
 class ApplicationTotalData
 {

@@ -10,9 +10,7 @@ class IncomeHandler
     public static function store(CreateIncomeRequest $request)
     {
         $validated_object = IncomeCreateData::fromRequest($request);
-        event(new CreatingIncome($validated_object));
-
-       
+        event(new CreatingIncome($validated_object));       
    
     }
 }

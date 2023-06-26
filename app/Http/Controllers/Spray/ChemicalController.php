@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Spray;
 
+use App\Http\Controllers\Controller;
 use App\Handlers\Chemical\ChemicalHandler;
 use App\Views\Chemicals\ChemicalEditProps;
 use App\Views\Chemicals\ChemicalIndexProps;

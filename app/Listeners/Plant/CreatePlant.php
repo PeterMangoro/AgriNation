@@ -2,14 +2,14 @@
 
 namespace App\Listeners\Plant;
 
-use App\Models\Plant;
+use App\Models\Garden\Plant;
 use Illuminate\Support\Facades\DB;
 use App\Events\Plant\CreatingPlant;
-use App\Services\Plant\PlantLocationService;
 use App\Services\Plant\PlantService;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Services\Shared\AttachmentService;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Services\Plant\PlantLocationService;
 
 class CreatePlant
 {

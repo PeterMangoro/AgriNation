@@ -1,7 +1,7 @@
 <?php
 namespace App\Views\Locations;
 
-use App\Models\Location;
+use App\Models\Garden\Location;
 use App\Handlers\Shared\ModelHandler;
 use App\DataObjects\Location\Partials\LocationForUpdate;
 

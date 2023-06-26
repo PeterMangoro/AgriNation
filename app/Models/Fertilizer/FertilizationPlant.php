@@ -2,8 +2,7 @@
 
 namespace App\Models\Fertilizer;
 
-
-use App\Models\Plant;
+use App\Models\Garden\Plant;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Fertilizer\Fertilization;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

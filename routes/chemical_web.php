@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChemicalController;
+use App\Http\Controllers\Spray\ChemicalController;
+
 
 Route::middleware([
     'auth:sanctum',

@@ -2,7 +2,7 @@
 
 namespace App\Events\Location;
 
-use App\Models\Location;
+use App\Models\Garden\Location;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

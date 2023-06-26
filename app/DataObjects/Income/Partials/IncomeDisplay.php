@@ -17,7 +17,7 @@ class IncomeDisplay
     }
     public static function data($income)
     {
-        // dd($income->garden);
+        // dd($income);
        if ($income->gardenIncome) {
         $source =  $income->gardenIncome->garden->plant->title . ' (batch '. $income->gardenIncome->garden->batch . ')' ;
         }

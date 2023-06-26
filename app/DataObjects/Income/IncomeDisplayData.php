@@ -9,7 +9,7 @@ class IncomeDisplayData
         object $incomes
     )
     {
-        // dd($incomes->garden);
+        // dd($incomes);
         return $incomes->through(
             fn ($product)=> IncomeDisplay::data($product)
         );

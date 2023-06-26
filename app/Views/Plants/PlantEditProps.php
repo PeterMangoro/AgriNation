@@ -1,9 +1,10 @@
 <?php
 namespace App\Views\Plants;
 
-use App\Models\Plant;
+use App\Models\Garden\Plant;
 use App\Handlers\Shared\ModelHandler;
 use App\DataObjects\Plant\Partials\PlantForUpdate;
+
 
 class PlantEditProps
 {

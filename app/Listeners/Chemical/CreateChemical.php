@@ -2,7 +2,7 @@
 
 namespace App\Listeners\Chemical;
 
-use App\Models\Chemical;
+use App\Models\Spray\Chemical;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Events\Chemical\CreatingChemical;

@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Garden;
 
-use App\Models\SprayLocation;
 use App\Builders\LocationBuilder;
-use App\Models\Fertilizer\FertilizationLocation;
 use App\Models\Shared\SharedModel;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Spray\SprayLocation;
+use App\Models\Fertilizer\FertilizationLocation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Fertilizer\FertilizationPlant;
+
 
 class Location extends SharedModel
 {

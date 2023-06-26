@@ -1,11 +1,11 @@
 <?php
 namespace App\Views\Fertilizations;
 
-use App\Models\Chemical;
-use App\Models\Fertilizer\Fertilizer;
-use App\Models\Location;
-use App\Models\Plant;
+use App\Models\Garden\Plant;
 use App\Views\Shared\BaseView;
+use App\Models\Garden\Location;
+use App\Models\Fertilizer\Fertilizer;
+
 
 class FertilizationCreateProps extends BaseView
 {

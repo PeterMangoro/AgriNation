@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Garden;
 
+use App\Models\Garden\Plant;
 use App\Builders\GardenBuilder;
+use App\Models\Finance\GardenIncome;
 use App\Builders\Shared\SharedScopes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Garden extends Model
 {

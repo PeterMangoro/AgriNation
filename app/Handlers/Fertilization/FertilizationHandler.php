@@ -10,9 +10,7 @@ class FertilizationHandler
     public static function store(CreateFertilizationRequest $request)
     {
         $validated_object = FertilizationCreateData::fromRequest($request);
-        event(new CreatingFertilization($validated_object));
-
-       
+        event(new CreatingFertilization($validated_object));      
    
     }
 }

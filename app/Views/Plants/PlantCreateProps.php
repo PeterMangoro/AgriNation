@@ -1,8 +1,8 @@
 <?php
 namespace App\Views\Plants;
 
-use App\Models\Location;
 use App\Views\Shared\BaseView;
+use App\Models\Garden\Location;
 
 class PlantCreateProps extends BaseView
 {

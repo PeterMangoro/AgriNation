@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Finance;
 
+use App\Models\Finance\CurrencyRate;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

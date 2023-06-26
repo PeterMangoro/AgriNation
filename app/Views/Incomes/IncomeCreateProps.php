@@ -1,9 +1,10 @@
 <?php
 namespace App\Views\Incomes;
 
-use App\Models\Garden;
-use App\ValueObjects\GardenDisplay;
+use App\Models\Garden\Garden;
 use App\Views\Shared\BaseView;
+use App\ValueObjects\GardenDisplay;
+
 
 class IncomeCreateProps extends BaseView
 {

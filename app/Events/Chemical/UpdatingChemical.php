@@ -2,7 +2,7 @@
 
 namespace App\Events\Chemical;
 
-use App\Models\Chemical;
+use App\Models\Spray\Chemical;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

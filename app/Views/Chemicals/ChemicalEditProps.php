@@ -1,7 +1,7 @@
 <?php
 namespace App\Views\Chemicals;
 
-use App\Models\Chemical;
+use App\Models\Spray\Chemical;
 use App\Handlers\Shared\ModelHandler;
 use App\DataObjects\Chemical\Partials\ChemicalForUpdate;
 

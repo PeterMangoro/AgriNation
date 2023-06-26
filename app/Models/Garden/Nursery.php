@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Garden;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Garden\Plant;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Nursery extends Model
 {

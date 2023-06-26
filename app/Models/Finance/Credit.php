@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Finance;
 
-use App\Models\Shared\SharedModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Growth extends SharedModel
+class Credit extends Model
 {
     use HasFactory;
 }

@@ -2,11 +2,12 @@
 
 namespace App\Views\Incomes;
 
-use App\DataObjects\Income\IncomeDisplayData;
-use App\Handlers\Shared\ModelHandler;
-use App\Models\Income;
-use App\Views\Shared\BaseView;
 use App\Views\Shared\Filters;
+use App\Models\Finance\Income;
+use App\Views\Shared\BaseView;
+use App\Handlers\Shared\ModelHandler;
+use App\DataObjects\Income\IncomeDisplayData;
+
 
 class IncomeIndexProps extends BaseView
 {

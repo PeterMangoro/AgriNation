@@ -2,11 +2,11 @@
 
 namespace App\Views\Sprays;
 
-use App\DataObjects\Spray\SprayDisplayData;
-use App\Handlers\Shared\ModelHandler;
-use App\Models\Spray;
-use App\Views\Shared\BaseView;
+use App\Models\Spray\Spray;
 use App\Views\Shared\Filters;
+use App\Views\Shared\BaseView;
+use App\Handlers\Shared\ModelHandler;
+use App\DataObjects\Spray\SprayDisplayData;
 
 class SprayIndexProps extends BaseView
 {

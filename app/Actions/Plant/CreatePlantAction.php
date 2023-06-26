@@ -2,9 +2,9 @@
 
 namespace App\Actions\Plant;
 
-use App\Models\Plant;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use App\Models\Garden\Plant;
 use Illuminate\Support\Facades\DB;
 
 class CreatePlantAction

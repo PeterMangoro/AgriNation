@@ -2,12 +2,13 @@
 
 namespace App\Models\Shared;
 
+
 use App\Models\User;
 use App\Traits\UUID;
 use App\Models\Attachment;
 use App\Casts\MakePointsCast;
+use App\Models\Finance\Price;
 use App\Builders\Shared\SharedScopes;
-use App\Models\Price;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

@@ -2,11 +2,13 @@
 
 namespace App\Views\Locations;
 
-use App\DataObjects\Location\LocationDisplayData;
-use App\Handlers\Shared\ModelHandler;
-use App\Models\Location;
-use App\Views\Shared\BaseView;
 use App\Views\Shared\Filters;
+use App\Views\Shared\BaseView;
+use App\Models\Garden\Location;
+use App\Handlers\Shared\ModelHandler;
+use App\DataObjects\Location\LocationDisplayData;
+
+
 
 class LocationIndexProps extends BaseView
 {

@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Spray;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Spray\Spray;
+use App\Models\Spray\Chemical;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class SprayChemical extends Model
 {

@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Spray;
 
 use App\Builders\SprayBuilder;
+use App\Models\Spray\SprayPlant;
 use App\Models\Shared\SharedModel;
+use App\Models\Spray\SprayChemical;
+use App\Models\Spray\SprayLocation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Spray extends SharedModel
 {

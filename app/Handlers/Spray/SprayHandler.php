@@ -10,9 +10,7 @@ class SprayHandler
     public static function store(CreateSprayRequest $request)
     {
         $validated_object = SprayCreateData::fromRequest($request);
-        event(new CreatingSpray($validated_object));
-
-       
+        event(new CreatingSpray($validated_object));       
    
     }
 }

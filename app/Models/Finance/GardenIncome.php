@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Finance;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Garden\Garden;
+use App\Models\Finance\Income;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class GardenIncome extends Model
 {

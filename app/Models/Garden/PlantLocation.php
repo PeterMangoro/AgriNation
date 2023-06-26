@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Garden;
 
+use App\Models\Garden\Plant;
 use App\Models\Shared\SharedModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class PlantLocation extends SharedModel
 {

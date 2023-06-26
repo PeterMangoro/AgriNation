@@ -1,10 +1,10 @@
 <?php
 namespace App\Views\Sprays;
 
-use App\Models\Chemical;
-use App\Models\Location;
-use App\Models\Plant;
+use App\Models\Garden\Plant;
+use App\Models\Spray\Chemical;
 use App\Views\Shared\BaseView;
+use App\Models\Garden\Location;
 
 class SprayCreateProps extends BaseView
 {

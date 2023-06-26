@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Garden;
 
-use App\Models\Garden;
-use App\Models\Nursery;
-use App\Models\SprayPlant;
-use App\Models\PlantLocation;
+use App\Models\Garden\Garden;
 use App\Builders\PlantBuilder;
+use App\Models\Garden\Nursery;
+use App\Models\Spray\SprayPlant;
 use App\Models\Shared\SharedModel;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Garden\PlantLocation;
 use App\Models\Fertilizer\FertilizationPlant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

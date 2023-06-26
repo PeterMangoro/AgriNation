@@ -2,7 +2,7 @@
 
 namespace App\Events\Plant;
 
-use App\Models\Plant;
+use App\Models\Garden\Plant;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;

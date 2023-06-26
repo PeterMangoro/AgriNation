@@ -11,7 +11,7 @@ class CreatePriceAction
     {
         $price_id = DB::table('prices')->insertGetId([
             'priceable_id' => $expenditure_id,
-            'priceable_type' => 'App\\Models\\' . $model,
+            'priceable_type' => 'App\\Models\\Finance\\' . $model,
             'amount' => $validated_request->price,
             'currency' => $validated_request->currency,
             'created_at' => Carbon::now(),

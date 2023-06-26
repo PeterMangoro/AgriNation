@@ -3,7 +3,6 @@
 namespace App\DataObjects\Fertilizer\Partials;
 
 use App\ValueObjects\Attachments;
-use Carbon\Carbon;
 
 class FertilizerForUpdate
 {

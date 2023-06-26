@@ -2,7 +2,6 @@
 
 namespace App\Models\Fertilizer;
 
-
 use App\Models\Fertilizer\Fertilizer;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Fertilizer\Fertilization;

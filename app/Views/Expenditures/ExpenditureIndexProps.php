@@ -2,11 +2,12 @@
 
 namespace App\Views\Expenditures;
 
-use App\DataObjects\Expenditure\ExpenditureDisplayData;
-use App\Handlers\Shared\ModelHandler;
-use App\Models\Expenditure;
-use App\Views\Shared\BaseView;
 use App\Views\Shared\Filters;
+use App\Views\Shared\BaseView;
+use App\Models\Finance\Expenditure;
+use App\Handlers\Shared\ModelHandler;
+use App\DataObjects\Expenditure\ExpenditureDisplayData;
+
 
 class ExpenditureIndexProps extends BaseView
 {

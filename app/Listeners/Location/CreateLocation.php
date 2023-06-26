@@ -2,7 +2,7 @@
 
 namespace App\Listeners\Location;
 
-use App\Models\Location;
+use App\Models\Garden\Location;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Events\Location\CreatingLocation;

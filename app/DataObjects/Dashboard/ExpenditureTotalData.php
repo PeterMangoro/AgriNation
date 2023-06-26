@@ -2,8 +2,8 @@
 namespace App\DataObjects\Dashboard;
 
 
-use App\Models\Price;
 use App\ValueObjects\To2dp;
+use App\Models\Finance\Price;
 use App\Actions\Shared\Finance\GetTotal;
 
 class ExpenditureTotalData

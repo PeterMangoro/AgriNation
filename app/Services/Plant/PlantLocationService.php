@@ -1,8 +1,8 @@
 <?php
 namespace App\Services\Plant;
 
+use App\Models\Garden\Plant;
 use App\Actions\Plant\PlantLocationAction;
-use App\Models\Plant;
 
 class PlantLocationService
 {

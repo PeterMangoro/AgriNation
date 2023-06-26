@@ -2,8 +2,8 @@
 
 namespace App\Actions\Spray;
 
-use App\Models\Spray;
 use Carbon\Carbon;
+use App\Models\Spray\Spray;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;

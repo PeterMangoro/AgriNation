@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Fertilization;
 
+use App\Http\Controllers\Controller;
 use App\Handlers\Fertilizer\FertilizerHandler;
 use App\Views\Fertilizers\FertilizerEditProps;
 use App\Views\Fertilizers\FertilizerIndexProps;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Finance;
 
+use App\Models\Finance\Price;
 use App\Models\Shared\SharedModel;
 use App\Builders\ExpenditureBuilder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

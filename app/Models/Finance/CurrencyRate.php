@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Finance;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Finance\Price;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CurrencyRate extends Model
 {

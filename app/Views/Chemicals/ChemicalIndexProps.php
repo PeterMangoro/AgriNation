@@ -2,11 +2,12 @@
 
 namespace App\Views\Chemicals;
 
-use App\DataObjects\Chemical\ChemicalDisplayData;
-use App\Handlers\Shared\ModelHandler;
-use App\Models\Chemical;
-use App\Views\Shared\BaseView;
 use App\Views\Shared\Filters;
+use App\Models\Spray\Chemical;
+use App\Views\Shared\BaseView;
+use App\Handlers\Shared\ModelHandler;
+use App\DataObjects\Chemical\ChemicalDisplayData;
+
 
 class ChemicalIndexProps extends BaseView
 {

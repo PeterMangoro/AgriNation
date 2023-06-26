@@ -1,8 +1,8 @@
 <?php
 namespace App\Actions\Shared\Finance;
 
-use App\Models\Expenditure;
-use App\Models\Income;
+use App\Models\Finance\Income;
+use App\Models\Finance\Expenditure;
 
 class GetTotal
 {

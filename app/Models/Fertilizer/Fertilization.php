@@ -2,12 +2,11 @@
 
 namespace App\Models\Fertilizer;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Shared\SharedModel;
 use App\Models\Fertilizer\FertilizationPlant;
 use App\Models\Fertilizer\FertilizationLocation;
 use App\Builders\Fertilizer\FertilizationBuilder;
 use App\Models\Fertilizer\FertilizationFertilizer;
-use App\Models\Shared\SharedModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 

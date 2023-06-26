@@ -2,12 +2,12 @@
 
 namespace App\DataObjects\Shared;
 
-use App\Models\Spray;
-use App\Models\Chemical;
-use App\Models\Location;
+use App\Models\Spray\Spray;
+use App\Models\Spray\Chemical;
+use App\Models\Garden\Location;
+use App\Models\Fertilizer\Fertilizer;
 use App\Actions\Shared\Model\GetCount;
 use App\Models\Fertilizer\Fertilization;
-use App\Models\Fertilizer\Fertilizer;
 
 class TotalOfData
 {

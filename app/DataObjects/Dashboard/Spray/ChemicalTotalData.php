@@ -1,7 +1,8 @@
 <?php
 namespace App\DataObjects\Dashboard\Spray;
 
-use App\Models\Garden;
+use App\Models\Garden\Garden;
+
 
 class ChemicalTotalData
 {

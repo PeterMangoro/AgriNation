@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FertilizerController;
+use App\Http\Controllers\Fertilization\FertilizerController;
+
 
 Route::middleware([
     'auth:sanctum',

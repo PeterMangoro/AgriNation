@@ -2,7 +2,6 @@
 
 namespace App\DataObjects\Fertilization\Partials;
 
-use App\ValueObjects\Money;
 use App\ValueObjects\Time;
 
 class FertilizationDisplay

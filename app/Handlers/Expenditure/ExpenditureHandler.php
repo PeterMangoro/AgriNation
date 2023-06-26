@@ -10,9 +10,7 @@ class ExpenditureHandler
     public static function store(CreateExpenditureRequest $request)
     {
         $validated_object = ExpenditureCreateData::fromRequest($request);
-        event(new CreatingExpenditure($validated_object));
-
-       
+        event(new CreatingExpenditure($validated_object));      
    
     }
 }

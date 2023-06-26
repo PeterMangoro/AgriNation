@@ -2,9 +2,9 @@
 
 namespace App\DataObjects\Dashboard\Spray;
 
-use App\Models\Plant;
-use App\Models\Chemical;
-use App\Models\Location;
+use App\Models\Garden\Plant;
+use App\Models\Spray\Chemical;
+use App\Models\Garden\Location;
 
 class SprayTotalData
 {

@@ -3,7 +3,6 @@
 namespace App\DataObjects\Plant\Partials;
 
 use App\ValueObjects\Attachments;
-use Carbon\Carbon;
 
 class PlantForUpdate
 {

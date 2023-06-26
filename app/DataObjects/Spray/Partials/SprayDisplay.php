@@ -2,7 +2,6 @@
 
 namespace App\DataObjects\Spray\Partials;
 
-use App\ValueObjects\Money;
 use App\ValueObjects\Time;
 
 class SprayDisplay
@@ -10,10 +9,7 @@ class SprayDisplay
     public function __construct(        
         public  readonly object $chemicals,
         public  readonly object $locations,
-        public  readonly object $plants,
-        // public  readonly int $quantity,
-        // public  readonly string $price,   
-        // public  readonly ?string $usd_equivalent,     
+        public  readonly object $plants,        
         public  readonly array $detail,        
         public  readonly int $id,
          public  readonly string $spray_date, 
