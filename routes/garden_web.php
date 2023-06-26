@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Garden\PlantController;
 use App\Http\Controllers\Garden\LocationController;
 
 Route::middleware([
@@ -10,4 +11,5 @@ Route::middleware([
     'verified',
 ])->group(function () {
             Route::resource('locations', LocationController::class);
+            Route::resource('plants', PlantController::class);
 });
