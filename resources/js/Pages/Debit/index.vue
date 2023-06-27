@@ -34,6 +34,9 @@
       >
         <template #tableHead>
           <TableHead class="cursor-pointer" 
+            >Date</TableHead
+          >
+          <TableHead class="cursor-pointer" 
             >Source</TableHead
           >
           
@@ -53,6 +56,7 @@
           v-for="debit in data.debits.data"
           :key="debit.id"
         >
+        <TableData>{{ debit.date }}</TableData>
           <TableData>{{ debit.source }}</TableData>
         
           <TableData class="w-auto hidden sm:table-cell">

@@ -12,7 +12,7 @@ class DebitBuilder extends Builder
             $query
                 // ->where('title_normalized', 'like', $term)
                 ->where('detail', 'like', $term)
-                ->orWhereHas('gardenIncome.garden.plant',function(Builder $query) use($term){
+                ->orWhereHas('gardenDebit.garden.plant',function(Builder $query) use($term){
                     $query->where('title_normalized','like',$term);
                 })
                 ;

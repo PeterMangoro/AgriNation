@@ -3,7 +3,7 @@
 namespace App\DataObjects\Finance\Debit\Partials;
 
 use App\ValueObjects\Money;
-
+use App\ValueObjects\Time;
 
 class DebitDisplay
 {
@@ -13,6 +13,7 @@ class DebitDisplay
         public  readonly ?string $usd_equivalent,     
         public  readonly array $detail,        
         public  readonly int $id,
+        public  readonly string $date,
     ) {
     }
     public static function data($debit)
@@ -30,7 +31,9 @@ class DebitDisplay
             Money::from($debit->price),
             Money::usdEquivalent($debit->price),
             $debit->detail,           
-            $debit->id
+            $debit->id,
+            Time::date($debit->date),  
+            
         );
     }
 }

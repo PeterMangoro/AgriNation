@@ -16,7 +16,7 @@ class DebitIndexProps extends BaseView
     {
         return DebitDisplayData::toWebPage(
             ModelHandler::getPaginatedData(
-                new Debit()
+                 Debit::orderBy('date','desc')
                     
             )
         );
