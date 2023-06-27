@@ -27,9 +27,11 @@ class Debit extends SharedModel
         return $this->morphOne(Price::class, 'priceable');
     }
 
-    function gardenIncome()  {
-        return $this->hasOne(GardenIncome::class);
+    function gardenDebit()  {
+        return $this->hasOne(GardenIncome::class,'income_id');
     }
+    //foreign_id => reference_id yemodel ino
+    //local_id => default id wc auto increments
 
     public function newEloquentBuilder($query):DebitBuilder
     {

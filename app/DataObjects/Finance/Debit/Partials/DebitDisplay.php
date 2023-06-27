@@ -17,7 +17,7 @@ class DebitDisplay
     }
     public static function data($debit)
     {
-        // dd($debit);
+        // dd($debit->gardenDebit);
        if ($debit->gardenDebit) {
         $source =  $debit->gardenDebit->garden->plant->title . ' (batch '. $debit->gardenDebit->garden->batch . ')' ;
         }

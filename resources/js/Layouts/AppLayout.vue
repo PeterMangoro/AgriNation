@@ -36,7 +36,7 @@ const logout = () => {
   <div class="flex">
     <Head :title="title" />
 
-    <Banner />
+   
 
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
       <nav
@@ -442,10 +442,11 @@ const logout = () => {
       </nav>
 
       <div class="flex w-screen">
-        <div class="w-1/6 hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <div class="w-1/6 hidden  sm:flex">
           <side-bar @click="showElements" />
         </div>
-        <div class="sm:w-5/6">
+        <div class="sm:w-full">
+          <Banner class="w-sc" />
           <!-- Page Heading -->
           <header v-if="$slots.header" class="dark:bg-gray-800">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

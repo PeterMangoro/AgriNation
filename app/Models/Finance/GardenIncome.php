@@ -15,6 +15,11 @@ class GardenIncome extends Model
         return $this->belongsTo(Income::class);
     }
 
+
+    function debit()  {
+        return $this->belongsTo(Debit::class,'income_id');
+    }
+
     function garden()  {
         return $this->belongsTo(Garden::class);
     }

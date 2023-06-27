@@ -1,12 +1,12 @@
 <?php
-namespace App\DataObjects\Dashboard;
+namespace App\DataObjects\Dashboard\Finance;
 
 
 use App\ValueObjects\To2dp;
 use App\Models\Finance\Price;
 use App\Actions\Shared\Finance\GetTotal;
 
-class ExpenditureTotalData
+class CreditTotalData
 {
     public function __construct(
         public readonly string $approx_usd_total,
@@ -20,18 +20,18 @@ class ExpenditureTotalData
 
     public static function of()
     {
-        $raw_total =  Price::whereNot('currency','usd')->where('priceable_type','App\Models\Expenditure')->with('rate')->get();
+        $raw_total =  Price::whereNot('currency','usd')->where('priceable_type','App\Models\Finance\Credit')->with('rate')->get();
         
         $total = $raw_total->map(function($money){           
            return ( $money->amount) / ($money->rate->rate);
         })->sum();
 
         return new static (
-            '$USD '. To2dp::of(($total+GetTotal::ofExpenditure('usd'))) .('(approx.)'),
-            '$USD '. To2dp::of( GetTotal::ofExpenditure('usd')) ,
-             To2dp::of(GetTotal::ofExpenditure('bond')) .' BOND',
-            To2dp::of(GetTotal::ofExpenditure('rand')) .' RAND',
-            To2dp::of(GetTotal::ofExpenditure('rtgs')) .' ZW(RTGS)',
+            '$USD '. To2dp::of(($total+GetTotal::ofCredit('usd'))) .('(approx.)'),
+            '$USD '. To2dp::of( GetTotal::ofCredit('usd')) ,
+             To2dp::of(GetTotal::ofCredit('bond')) .' BOND',
+            To2dp::of(GetTotal::ofCredit('rand')) .' RAND',
+            To2dp::of(GetTotal::ofCredit('rtgs')) .' ZW(RTGS)',
             
             
 
