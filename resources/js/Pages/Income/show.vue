@@ -1,3 +1,3 @@
 <template>
-    This is Income edit page
+    This is Debit show page
 </template>

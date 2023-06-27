@@ -35,6 +35,17 @@ const props = defineProps({
 
             <list-card
             v-if="data.filters.show=='accounts'"
+            class="shadow-lg shadow-green-500 rounded "
+              title="Approx. Money Loaned"
+              total="data.debit"
+              add_path="debits.create"
+              more_path="debits.index"
+              add_tip="Click to Add a new Loan"
+              more_tip="Click to view all your Loans"
+            />
+
+            <list-card
+            v-if="data.filters.show=='accounts'"
             class="shadow-lg shadow-red-500 rounded"
               title="Approx. Money Spent"
               :total="data.expenditure"
@@ -42,6 +53,17 @@ const props = defineProps({
               more_path="expenditures.index"
               add_tip="Click to Add a new Expenditure"
               more_tip="Click to view all your Expenditures"
+            />
+
+            <list-card
+            v-if="data.filters.show=='accounts'"
+            class="shadow-lg shadow-red-500 rounded"
+              title="Approx. Money Borrowed"
+              total="data.credit"
+              add_path="credits.create"
+              more_path="credits.index"
+              add_tip="Click to Add a new Credit"
+              more_tip="Click to view all your Credits"
             />
 
             <list-card

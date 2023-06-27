@@ -8,51 +8,61 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 
 // CreatingEvents
-use App\Events\{    
-    Expenditure\CreatingExpenditure,
+use App\Events\{        
     Spray\CreatingSpray,
     Fertilization\CreatingFertilization,
     Chemical\CreatingChemical,  
     Fertilizer\CreatingFertilizer,   
     Location\CreatingLocation,  
     Plant\CreatingPlant, 
-    Income\CreatingIncome, 
+    Finance\Income\CreatingIncome, 
+    Finance\Debit\CreatingDebit, 
+    Finance\Expenditure\CreatingExpenditure,
+    Finance\Credit\CreatingCredit,
 };
 
 // CreatingListeners
 use App\Listeners\{    
-    Expenditure\CreateExpenditure,
+    
     Spray\CreateSpray,
     Fertilization\CreateFertilization,
     Chemical\CreateChemical, 
     Fertilizer\CreateFertilizer,  
     Location\CreateLocation, 
     Plant\CreatePlant,
-    Income\CreateIncome,
+    Finance\Income\CreateIncome,
+    Finance\Debit\CreateDebit,
+    Finance\Expenditure\CreateExpenditure,
+    Finance\Credit\CreateCredit,
 };
 
 // UpdatingEvents
-use App\Events\{    
-    Expenditure\UpdatingExpenditure,
+use App\Events\{
     Spray\UpdatingSpray,
     Fertilization\UpdatingFertilization,
     Chemical\UpdatingChemical, 
     Fertilizer\UpdatingFertilizer,  
     Location\UpdatingLocation,  
     Plant\UpdatingPlant,
-    Income\UpdatingIncome,
+    Finance\Income\UpdatingIncome,
+    Finance\Income\UpdatingDebit,
+    Finance\Income\UpdatingCredit,
+    Finance\Expenditure\UpdatingExpenditure,
 };
 
 // UpdatingListeners
 use App\Listeners\{    
-    Expenditure\UpdateExpenditure,
     Spray\UpdateSpray,
     Fertilization\UpdateFertilization,
     Chemical\UpdateChemical, 
     Fertilizer\UpdateFertilizer,
     Location\UpdateLocation,   
     Plant\UpdatePlant, 
-    Income\UpdateIncome, 
+    Finance\Income\UpdateIncome, 
+    Finance\Expenditure\UpdateExpenditure,
+    Finance\Expenditure\UpdateDebit,
+    Finance\Expenditure\UpdateCredit,
+    
 };
 
 class EventServiceProvider extends ServiceProvider
@@ -68,10 +78,7 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         //Creating
-        CreatingExpenditure::class => [
-            CreateExpenditure::class,
-        ],
-
+      
         CreatingSpray::class => [
             CreateSpray::class,
         ],
@@ -96,9 +103,23 @@ class EventServiceProvider extends ServiceProvider
             CreatePlant::class,
         ],
 
+        CreatingExpenditure::class => [
+            CreateExpenditure::class,
+        ],
+
         CreatingIncome::class => [
             CreateIncome::class,
         ],
+
+        CreatingDebit::class => [
+            CreateDebit::class,
+        ],
+
+        CreatingCredit::class => [
+            CreateCredit::class,
+        ],
+
+
 
         //Updating
         UpdatingChemical::class => [
@@ -120,6 +141,15 @@ class EventServiceProvider extends ServiceProvider
         UpdatingIncome::class => [
             UpdateIncome::class,
         ],
+
+        UpdatingDebit::class => [
+            UpdateDebit::class,
+        ],
+
+        UpdatingCredit::class => [
+            UpdateCredit::class,
+        ],
+
 
         UpdatingSpray::class => [
             UpdateSpray::class,

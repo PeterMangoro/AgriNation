@@ -2,65 +2,49 @@
 
 namespace App\Http\Controllers\Finance;
 
-use Illuminate\Http\Request;
-use App\Models\Finance\Debit;
 use App\Http\Controllers\Controller;
+use App\Handlers\Finance\Debit\DebitHandler;
+use App\Views\Finance\Debits\DebitIndexProps;
+use App\Views\Finance\Debits\DebitCreateProps;
+use App\Http\Requests\Finance\Debit\CreateDebitRequest;
+
 
 class DebitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+   public function index()
+   {
+      return inertia('Debit/index', [
+         'data' => new DebitIndexProps()
+      ]);
+   }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+   public function create()
+   {
+      return inertia('Debit/create',[
+         'data' => new DebitCreateProps()
+      ]);
+   }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+   public function store(CreateDebitRequest $request)
+   {
+      DebitHandler::store($request);      
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Debit $debit)
-    {
-        //
-    }
+      return to_route('debits.index')->with('flash.banner', 'Debit Added Successfully');
+   }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Debit $debit)
-    {
-        //
-    }
+   public function show()
+   {
+      return inertia('Debit/show');
+   }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Debit $debit)
-    {
-        //
-    }
+   public function update()
+   {
+      return inertia('Debit/index');
+   }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Debit $debit)
-    {
-        //
-    }
+   public function delete()
+   {
+      return inertia('Debit/index');
+   }
+
 }

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Finance;
 
 use App\Http\Controllers\Controller;
-use App\Handlers\Income\IncomeHandler;
-use App\Views\Incomes\IncomeIndexProps;
-use App\Http\Requests\Income\CreateIncomeRequest;
-// use App\Views\Income\IncomeCreateProps;
-use App\Views\Incomes\IncomeCreateProps;
+use App\Handlers\Finance\Income\IncomeHandler;
+use App\Views\Finance\Incomes\IncomeIndexProps;
+use App\Views\Finance\Incomes\IncomeCreateProps;
+use App\Http\Requests\Finance\Income\CreateIncomeRequest;
+
+
 
 class IncomeController extends Controller
 {
