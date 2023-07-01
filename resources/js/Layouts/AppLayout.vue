@@ -67,15 +67,10 @@ const logout = () => {
                 >
                   Crops
                 </NavLink>
+               
                 <NavLink
-                  :href="route('dashboard')"
-                  :active="route().current('dashboard')"
-                >
-                  Protecting Crops
-                </NavLink>
-                <NavLink
-                  :href="route('dashboard')"
-                  :active="route().current('dashboard')"
+                  :href="route('blogs.create')"
+                  :active="route().current('blogs.create')"
                 >
                   Research & Notes
                 </NavLink>

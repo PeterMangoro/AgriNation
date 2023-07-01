@@ -19,6 +19,8 @@
     },
     "dependencies": {
         "@headlessui/vue": "^1.7.13",
-        "@heroicons/vue": "^2.0.17"
+        "@heroicons/vue": "^2.0.17",
+        "@vueup/vue-quill": "^1.2.0",
+        "quill-blot-formatter": "^1.0.5"
     }
 }
