@@ -1,21 +1,21 @@
 
 <template>
   <form-section @submitted="createChemical">
-    <template #title> <p class="text-slate-50 underline"> Upload Chemical Attachments</p> </template>
+    <template #title> <p class="dark:text-slate-50 text-slate-900 underline"> Upload Chemical Attachments</p> </template>
 
     <template #description>
      
-      <p class="text-slate-50 mt-2">Please resize your image ,size should not Exceed 2mb.</p>
-      <p class="text-slate-50 mt-2">
+      <p class="dark:text-slate-50 text-slate-900 mt-2">Please resize your image ,size should not Exceed 2mb.</p>
+      <p class="dark:text-slate-50 text-slate-900 mt-2">
         Visit <a class="underline" href="https://tinypng.com/" target="_blank">tinypng.com</a> for
         free image resizing.
       </p>
-      <p class="text-slate-50 mt-2">If your chemical has a manual, you can upload it as a document</p>
-      <p class="text-slate-50 mt-2">Documents require the name of the document</p>
+      <p class="dark:text-slate-50 text-slate-900 mt-2">If your chemical has a manual, you can upload it as a document</p>
+      <p class="dark:text-slate-50 text-slate-900 mt-2">Documents require the name of the document</p>
       <p class="text-red-500 mt-2">
         Document upload is optional and can be skipped
       </p>
-      <p class="text-slate-50 mt-2">
+      <p class="dark:text-slate-50 text-slate-900 mt-2">
         Categories are helpful in grouping your chemicals according to client
         preferences
       </p>
@@ -38,7 +38,7 @@
           >
             <div class="space-y-1 text-center">
               <svg
-                class="w-12 h-12 mx-auto text-black dark:text-slate-50"
+                class="w-12 h-12 mx-auto  dark:dark:text-slate-50 text-slate-900"
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 48 48"
@@ -51,7 +51,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              <div class="flex text-sm text-black dark:text-slate-50 ">
+              <div class="flex text-sm  dark:dark:text-slate-50 text-slate-900 ">
                 <label
                   for="file-upload"
                   class="
@@ -77,7 +77,7 @@
                   />
                 </label>
               </div>
-              <p class="text-xs text-black dark:text-slate-50">PNG, JPG, GIF up to 2MB</p>
+              <p class="text-xs  dark:dark:text-slate-50 text-slate-900">PNG, JPG, GIF up to 2MB</p>
               <InputError
                 class="mt-2"
                 v-for="(error, image) in form.errors.images"
@@ -91,7 +91,7 @@
 
       <!-- Documents -->
       <div class="col-span-6 sm:col-span-4">
-        <label class="block mt-3 text-sm font-medium text-black dark:text-slate-50">
+        <label class="block mt-3 text-sm font-medium  dark:dark:text-slate-50 text-slate-900">
           Choose A Document
         </label>
         <div
@@ -123,7 +123,7 @@
               />
             </div>
             <InputError class="mt-2" :message="form.errors.document_title" />
-            <div class="flex text-sm text-black dark:text-slate-50">
+            <div class="flex text-sm text-black dark:dark:text-slate-50 text-slate-900">
               <label
                 for="file-upload"
                 class="

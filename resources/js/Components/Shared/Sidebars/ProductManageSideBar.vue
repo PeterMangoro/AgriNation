@@ -4,8 +4,8 @@ import {
   BookmarkIcon,
   RectangleGroupIcon,
   CurrencyDollarIcon,
-RectangleStackIcon,
-  
+  RectangleStackIcon,
+  BookOpenIcon,
 } from "@heroicons/vue/24/outline";
 import { Link } from "@inertiajs/vue3";
 
@@ -51,10 +51,16 @@ const emit = defineEmits(["showElements"]);
         </div>
       </Link>
 
-      
-     
+      <Link
+        class="border-b grid p-6 cursor-pointer"
+        href="/blogs"
+      >
+        <div class="mx-auto">Research</div>
 
-      
+        <div class="text-center place-items-center">
+          <BookOpenIcon class="h-6 w-6 text-orange-500 mx-auto" />
+        </div>
+      </Link>
     </div>
   </aside>
 </template>

@@ -2,20 +2,20 @@
 <template>
   <form-section @submitted="addDetail">
     <template #title>
-      <p class="text-slate-50">Add Chemical</p>
+      <p class="dark:text-slate-50 text-slate-900">Add Chemical</p>
     </template>
 
     <template #description>
-      <p class="text-slate-50">Tell us about what your Chemical</p>
-      <p class="text-slate-50">Prices are tagged in USD or equivalent USD</p>
-      <p class="pt-2 text-slate-50">
+      <p class="dark:text-slate-50 text-slate-900">Tell us about what your Chemical</p>
+      <p class="dark:text-slate-50 text-slate-900">Prices are tagged in USD or equivalent USD</p>
+      <p class="pt-2 dark:text-slate-50 text-slate-900">
         For points, mark at the beginning of each point with
-        <span class="text-lg font-medium text-slate-50">*</span> eg
+        <span class="text-lg font-medium dark:text-slate-50 text-slate-900">*</span> eg
       </p>
 
-      <p class="text-slate-50">* Fertilizer for topping</p>
-      <p class="text-slate-50">* Bought from XYZ Company</p>
-      <p class="text-slate-50">* Balance of $3-00 remaining</p>
+      <p class="dark:text-slate-50 text-slate-900">* Fertilizer for topping</p>
+      <p class="dark:text-slate-50 text-slate-900">* Bought from XYZ Company</p>
+      <p class="dark:text-slate-50 text-slate-900">* Balance of $3-00 remaining</p>
     </template>
 
     <template #form>

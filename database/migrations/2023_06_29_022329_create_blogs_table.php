@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->index();
+            $table->string('title');
+            $table->string('title_normalized')->virtualAs("regexp_replace(title,'[^A-Za-z0-9]','')")->index();           
             $table->longText('detail')->fullText();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -8,7 +8,8 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 
 // CreatingEvents
-use App\Events\{        
+use App\Events\{    
+    Blog\CreatingBlog,     
     Spray\CreatingSpray,
     Fertilization\CreatingFertilization,
     Chemical\CreatingChemical,  
@@ -23,7 +24,7 @@ use App\Events\{
 
 // CreatingListeners
 use App\Listeners\{    
-    
+    Blog\CreateBlog, 
     Spray\CreateSpray,
     Fertilization\CreateFertilization,
     Chemical\CreateChemical, 
@@ -38,6 +39,7 @@ use App\Listeners\{
 
 // UpdatingEvents
 use App\Events\{
+    Blog\UpdatingBlog, 
     Spray\UpdatingSpray,
     Fertilization\UpdatingFertilization,
     Chemical\UpdatingChemical, 
@@ -51,7 +53,8 @@ use App\Events\{
 };
 
 // UpdatingListeners
-use App\Listeners\{    
+use App\Listeners\{   
+    Blog\UpdateBlog,  
     Spray\UpdateSpray,
     Fertilization\UpdateFertilization,
     Chemical\UpdateChemical, 
@@ -78,6 +81,9 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         //Creating
+        CreatingBlog::class => [
+            CreateBlog::class,
+        ],
       
         CreatingSpray::class => [
             CreateSpray::class,
@@ -122,6 +128,10 @@ class EventServiceProvider extends ServiceProvider
 
 
         //Updating
+        UpdatingBlog::class => [
+            UpdateBlog::class,
+        ],
+
         UpdatingChemical::class => [
             UpdateChemical::class,
         ],
