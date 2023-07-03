@@ -8,14 +8,14 @@
           <update-blog-information :blog="data.blog"  />
           <JetSectionBorder />
         </div>
-        <div>
+        <!-- <div>
           <update-blog-images :blog="data.blog"  />
           <JetSectionBorder />
         </div>
         <div>
           <update-blog-documents :blog="data.blog"  />
           <JetSectionBorder />
-        </div>
+        </div> -->
       </div>
     </div>
   </app-layout>
@@ -23,9 +23,9 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { router  } from "@inertiajs/vue3";
-import UpdateBlogInformation from "@/Pages/Blog/Partials/Edit/UpdateBlogInformation.vue";
-import UpdateBlogImages from "@/Pages/Blog/Partials/Edit/UpdateBlogImages.vue";
-import UpdateBlogDocuments from "@/Pages/Blog/Partials/Edit/UpdateBlogDocuments.vue";
+import UpdateBlogInformation from "@/Pages/Blog/Partials/Edit/UpdateBlogsInformation.vue";
+// import UpdateBlogImages from "@/Pages/Blog/Partials/Edit/UpdateBlogImages.vue";
+// import UpdateBlogDocuments from "@/Pages/Blog/Partials/Edit/UpdateBlogDocuments.vue";
 import JetSectionBorder from "@/Components/SectionBorder.vue";
 
 const props = defineProps({

@@ -7,7 +7,8 @@ class BlogUpdateData
     public function __construct(
         public readonly string $title,
         public readonly string $detail, 
-        public readonly array $images,  
+        public readonly ?array $images, 
+        public readonly string $tags,  
        
     ) {
     }
@@ -18,6 +19,7 @@ class BlogUpdateData
             $request->title,
             $request->detail,
             $request->images,
+            $request->tags,
         );
     }
 }

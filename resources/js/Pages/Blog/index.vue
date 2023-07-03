@@ -45,7 +45,13 @@
             <div class="max-w-2xl">
               <span class="block text-gray-400 mb-1">{{ blog.date }}</span>
               <p class="text-2xl font-semibold text-gray-900">{{blog.title}}</p>
-            </div>
+              <div class="flex flex-wrap space-x-3">
+                <p 
+              v-for="tag in blog.tags" :key="tag"
+              class="border  rounded-full w-fit px-1.5 border-black text-gray-900">{{ tag }}</p>
+            
+              </div>
+              </div>
           </div>
           <div class="w-full lg:w-auto px-4 ml-auto text-right">
             <div class="flex space-x-1">

@@ -20,6 +20,7 @@ class CreateBlogAction
 
         return DB::table('blogs')->insertGetId([
             'title' => $validated_request->title,
+            'tags' => $validated_request->tags,
             'detail' => $editor_content_save,
             'created_at' => Carbon::now(),
             'uuid' => Str::uuid()->toString(),

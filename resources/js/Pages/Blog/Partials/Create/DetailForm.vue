@@ -28,7 +28,22 @@
           autocomplete="title"
         />
         <InputError class="mt-2" :message="form.errors.title" />
-      </div>    
+      </div>   
+      
+      <div class="col-span-6 sm:col-span-4">
+        <input-label for="tags" value="Tags" />
+        <text-area
+          id="tags"
+          ref="tagsInput"
+          v-model="form.tags"
+          type="text"
+          class="block w-full mt-1"
+          autocomplete="tags"
+          rows="2"
+          required
+        />
+      </div>
+
       <div class="col-span-6 sm:col-span-4">
         <div>
           <InputLabel for="preview" value="Preview Image" />
@@ -155,14 +170,11 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 import { QuillEditor } from "@vueup/vue-quill";
 import BlotFormatter from "quill-blot-formatter";
 
-let title = useStorage("title", null);
-let detail = useStorage("detail", null);
-let type = useStorage("type", "usd");
 
 const form = useForm({
   title: null, 
-  detail: null, 
-  type: type.value, 
+  tags: null, 
+  detail: null,  
   images:[],
   remember: true,
 });

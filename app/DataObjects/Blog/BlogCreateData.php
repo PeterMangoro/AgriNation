@@ -8,6 +8,7 @@ class BlogCreateData
         public readonly string $title,
         public readonly string $detail, 
         public readonly array $images,  
+        public readonly string $tags, 
        
     ) {
     }
@@ -18,6 +19,7 @@ class BlogCreateData
             $request->title,
             $request->detail,
             $request->images,
+            $request->tags,
         );
     }
 }

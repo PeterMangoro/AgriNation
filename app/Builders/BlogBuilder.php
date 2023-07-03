@@ -35,6 +35,7 @@ class BlogBuilder extends Builder
         return $this->when($terms, function ($query) use ($term) {
             $query
                 ->where('title_normalized', 'like', $term)
+                ->orWhere('tags_normalized', 'like', $term)
                 ->orWhere('detail', 'like', $term);
                 
         });
