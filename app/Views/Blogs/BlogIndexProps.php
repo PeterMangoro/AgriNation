@@ -15,7 +15,7 @@ class BlogIndexProps extends BaseView
     {
         return BlogDisplayData::toWebPage(
             ModelHandler::getPaginatedData(
-                new Blog()
+                Blog::withDisplayImage()
                     
             )
         );

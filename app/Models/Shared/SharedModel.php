@@ -69,4 +69,13 @@ class SharedModel extends Model
             ->where('type', 'document')
             ->onlyTrashed();
     }
+
+    public function latestImage()
+    {
+        return $this->morphOne(Attachment::class, 'attachmentable')
+            ->where('type', 'image')
+            // ->latest('id')  #this calls all models then selects the last
+            ->latestOfMany('id')    #calls only the last model
+        ;
+    }
 }

@@ -1,9 +1,13 @@
 <template>
   <app-layout title="Blogs">
     <template #header>
-      <h2 class="text-xl font-semibold leading-tight text-sky-500">
-        Shop Dashboard
-      </h2>
+      <div class="max-w-2xl mx-auto mb-15 text-center">
+     
+      <h1 class="font-heading text-5xl xs:text-6xl md:text-7xl font-bold">
+        <span>News &amp;</span>
+        <span class="font-serif italic"> Articles</span>
+      </h1>
+    </div>
     </template>
     <!-- <bread-crumb :routes="routes" /> -->
 
@@ -26,71 +30,29 @@
         </span>
       </div>
 
-      <Table
-        heading="Blog Table"
-        :pagination="data.blogs.links"
-        path="blogs.create"
-        button="Add new Blog"
-      >
-        <template #tableHead>
-          <TableHead class="cursor-pointer" @click="sort('title')" name="title"
-            >Title</TableHead
-          >
-          <TableHead class="hidden sm:table-cell">Quantity</TableHead>
-          <TableHead class="hidden sm:table-cell">Description</TableHead>
-          <!-- <TableHead class="hidden sm:table-cell">Preview</TableHead> -->
-          <TableHead
-            class="cursor-pointer hidden sm:table-cell"
-            @click="sort('price')"
-            name="price"
-            >Price</TableHead
-          >
-          <!-- <TableHead
-              class="cursor-pointer"
-              @click="sort('sale_status')"
-              name="sale_status"
-              >Status</TableHead
-            > -->
-
-          <TableHead class="text-center"></TableHead>
-        </template>
-
-        <TableRow
-          v-for="blog in data.blogs.data"
-          :key="blog.id"
-        >
-          <TableData>{{ blog.title }}</TableData>
-          <TableData class="hidden sm:table-cell">{{
-            blog.quantity
-          }}</TableData>
-          <TableData class="w-auto hidden sm:table-cell">
-            <p
-              v-for="(point, index) in blog.detail"
-              :key="index"
-              class="flex gap-1 line-clamp-1"
-            >
-              <span v-if="index < 3"> - {{ point }} </span>
-            </p></TableData
-          >
-          <!-- <TableData class="hidden sm:table-cell"
-              ><img class="w-20 h-20 rounded" :src="blog.latest_image"
-            /></TableData> -->
-
-          <TableData class="hidden sm:table-cell">
-            {{ blog.price }} <br>
-            <span v-if="blog.usd_equivalent" class="font-bold"> ({{ blog.usd_equivalent }})</span>
-
-          </TableData>
-          <!-- <TableData class="hidden sm:table-cell">
-              <span v-if="blog.status == 'For Sale'">Available</span>
-              <span class="text-red-500" v-else>Not Available</span>
-            </TableData> -->
-          <TableData>
+      <section class="relative  overflow-hidden">
+  <img class="absolute top-0 right-0 xl:mt-10 -mr-24 lg:-mr-0" src="saturn-assets/images/blog/star-circle-right.svg" alt="">
+  <img class="hidden sm:block absolute bottom-0 left-0 -mb-48 lg:mb-0" src="saturn-assets/images/blog/blue-light-left.png" alt="">
+  <div class="relative container px-4 mx-auto">
+    
+    <div class="max-w-5xl mx-auto">
+      <div class="py-2 border-t-2 border-gray-400" v-for="blog in data.blogs.data" :key="blog.uuid">
+        <div class="flex flex-wrap lg:flex-nowrap items-center">
+          <div class="w-full lg:w-auto px-4 mb-8 lg:mb-0">
+            <img class="block w-44 h-30 object-cover rounded" :src="blog.image" alt="">
+          </div>
+          <div class="w-full lg:w-9/12 px-4 mb-10 lg:mb-0">
+            <div class="max-w-2xl">
+              <span class="block text-gray-400 mb-1">{{ blog.date }}</span>
+              <p class="text-2xl font-semibold text-gray-900">{{blog.title}}</p>
+            </div>
+          </div>
+          <div class="w-full lg:w-auto px-4 ml-auto text-right">
             <div class="flex space-x-1">
               <ButtonLink
                 class=""
                 :link="route('blogs.edit', blog.uuid)"
-                >View</ButtonLink
+                >Edit</ButtonLink
               >
               <Button
                 class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
@@ -100,9 +62,14 @@
                 >Suspend</Button
               >
             </div>
-          </TableData>
-        </TableRow>
-      </Table>
+          </div>
+        </div>
+      </div>
+    
+     
+    </div>
+  </div>
+</section>
       <span class="w-full" v-if="data.blogs.data.length == 0">
         <no-result-display />
       </span>

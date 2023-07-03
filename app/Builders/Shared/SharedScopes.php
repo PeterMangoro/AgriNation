@@ -92,6 +92,12 @@ trait SharedScopes
             },
             ]);
     }
+
+    public function scopeWithDisplayImage($query)
+    {
+        return $query->with('latestImage:id,attachments.attachmentable_id,path');
+    }
+
    
     public function scopeWhereCurrencyIs($query,string $currency)
     {
