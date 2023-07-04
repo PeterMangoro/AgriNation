@@ -22,17 +22,16 @@
           show_per_page="true"
         />
         <span class="my-auto">
-          <!-- <button-link
-              :link="route('blogs.trashed.index')"
+          <button-link
+              :link="route('blogs.create')"
               class=" bg-slate-600"
-              >Deleted Blogs</button-link
-            > -->
+              >New Blog</button-link
+            >
         </span>
       </div>
 
       <section class="relative  overflow-hidden">
-  <img class="absolute top-0 right-0 xl:mt-10 -mr-24 lg:-mr-0" src="saturn-assets/images/blog/star-circle-right.svg" alt="">
-  <img class="hidden sm:block absolute bottom-0 left-0 -mb-48 lg:mb-0" src="saturn-assets/images/blog/blue-light-left.png" alt="">
+  
   <div class="relative container px-4 mx-auto">
     
     <div class="max-w-5xl mx-auto">
@@ -45,7 +44,7 @@
             <div class="max-w-2xl">
               <span class="block text-gray-400 mb-1">{{ blog.date }}</span>
               <p class="text-2xl font-semibold text-gray-900">{{blog.title}}</p>
-              <div class="flex flex-wrap space-x-3">
+              <div class="flex flex-wrap  gap-2">
                 <p 
               v-for="tag in blog.tags" :key="tag"
               class="border  rounded-full w-fit px-1.5 border-black text-gray-900">{{ tag }}</p>
@@ -55,6 +54,12 @@
           </div>
           <div class="w-full lg:w-auto px-4 ml-auto text-right">
             <div class="flex space-x-1">
+              
+              <ButtonLink
+                class="bg-indigo-500 hover:bg-indigo-700"
+                :link="route('blogs.show', blog.uuid)"
+                >Read</ButtonLink
+              >
               <ButtonLink
                 class=""
                 :link="route('blogs.edit', blog.uuid)"

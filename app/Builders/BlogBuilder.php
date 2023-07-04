@@ -36,7 +36,7 @@ class BlogBuilder extends Builder
             $query
                 ->where('title_normalized', 'like', $term)
                 ->orWhere('tags_normalized', 'like', $term)
-                ->orWhere('detail', 'like', $term);
+                ->orWhere('detail', 'like', $term); #will try to use whereFullText 
                 
         });
     }

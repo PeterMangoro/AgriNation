@@ -30,9 +30,11 @@ class BlogController extends Controller
       return to_route('blogs.index')->with('flash.banner', 'Blog Added Successfully');
    }
 
-   public function show()
+   public function show(string $uuid)
    {
-      return inertia('Blog/show');
+      return inertia('Blog/show',[
+         'data'=> new BlogEditProps($uuid)
+      ]);
    }
 
    public function edit(string $uuid)

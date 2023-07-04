@@ -35,7 +35,7 @@ class CreateBlogAction
             list($type, $data) = explode(';', $data);
             list(, $data)      = explode(',', $data);
             $data = base64_decode($data);
-            $image_name = "/blog/" . 'post_' . time() . $k;
+            $image_name = "/blog/" . 'blog_' . time() . $k;
             $path = public_path() . $image_name;
             file_put_contents($path, $data);
             $img->removeAttribute('src');
