@@ -115,18 +115,7 @@
            
     </template>
    
-    <!-- <template #actions>
-      <action-message :on="form.recentlySuccessful" class="mr-3">
-        Saved.
-      </action-message>
-
-      <submit-button
-        :class="{ 'opacity-25': form.processing }"
-        :disabled="form.processing"
-      >
-        Next
-      </submit-button>
-    </template> -->
+   
   </form-section>
 
   <div class="my-2 shadow  border-none rounded shadow-green-600">

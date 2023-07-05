@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Finance;
 
+use App\Actions\Finance\Debit\DeleteDebtAction;
 use App\Http\Controllers\Controller;
 use App\Handlers\Finance\Debit\DebitHandler;
 use App\Views\Finance\Debits\DebitIndexProps;
 use App\Views\Finance\Debits\DebitCreateProps;
 use App\Http\Requests\Finance\Debit\CreateDebitRequest;
-
+use App\Models\Finance\Debit;
 
 class DebitController extends Controller
 {
@@ -42,9 +43,12 @@ class DebitController extends Controller
       return inertia('Debit/index');
    }
 
-   public function delete()
+   public function destroy(  $debt)
    {
-      return inertia('Debit/index');
+      $debt=Debit::find($debt);
+      // dd($debt);
+      DeleteDebtAction::handle($debt);
+      return back();
    }
 
 }

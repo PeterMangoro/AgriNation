@@ -91,7 +91,7 @@
                 @click="show_delete_confirmation(debit.id)"
                 as="button"
                 type="button"
-                >Suspend</Button
+                >Paid</Button
               >
             </div>
           </TableData>
@@ -107,6 +107,7 @@
     <div v-if="show">
       <delete-confirmation
         :message="message"
+        button_message="Yes, Its Paid"
         path="debits.destroy"
         :item="debit_to_be_deleted"
         @close="show = false"
@@ -133,7 +134,7 @@ const props = defineProps({
   data: Object,
 });
 const message =
-  "Are you sure you want to delete this debit. Deleted debits will not be seen by customers, but can be found in the trash if you want to restore them";
+  "Are you sure you this debt has been paid";
 
 const show = ref(false);
 const debit_to_be_deleted = ref(null);

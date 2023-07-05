@@ -16,7 +16,7 @@
         class="ml-3"
         @click="[deleteItem(itemToBeDeleted), $emit('close')]"
       >
-        Delete Item
+       {{ button_message }}
       </JetDangerButton>
     </template>
   </JetConfirmationModal>
@@ -32,6 +32,10 @@ const props = defineProps({
   path: Object,
   item: Object,
   message: String,
+  button_message:{
+    type:String,
+    default:"Delete Item"
+  }
 });
 const confirmingItemDeletion = ref(true);
 
