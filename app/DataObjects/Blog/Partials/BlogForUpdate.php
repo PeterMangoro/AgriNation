@@ -2,6 +2,7 @@
 
 namespace App\DataObjects\Blog\Partials;
 
+use App\ValueObjects\Time;
 use App\ValueObjects\MakePoints;
 
 class BlogForUpdate
@@ -12,6 +13,7 @@ class BlogForUpdate
         public  readonly int $id,       
         public  readonly string $title,
         public  readonly array $tags,
+        public  readonly string $update,
 
     ) {
     }
@@ -23,7 +25,8 @@ class BlogForUpdate
             $blog->detail,
             $blog->id,
             $blog->title,    
-            MakePoints::from($blog->tags),    
+            MakePoints::from($blog->tags), 
+            Time::date($blog->updated_at),   
         );
     }
 }

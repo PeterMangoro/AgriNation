@@ -69,8 +69,8 @@ const logout = () => {
                 </NavLink>
                
                 <NavLink
-                  :href="route('blogs.create')"
-                  :active="route().current('blogs.create')"
+                  :href="route('blogs.index')"
+                  :active="route().current('blogs.index')"
                 >
                   Research & Notes
                 </NavLink>

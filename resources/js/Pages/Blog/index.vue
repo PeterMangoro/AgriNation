@@ -4,7 +4,7 @@
       <div class="max-w-2xl mx-auto mb-15 text-center">
      
       <h1 class="font-heading text-5xl xs:text-6xl md:text-7xl font-bold">
-        <span>News &amp;</span>
+        <span>Research &amp;</span>
         <span class="font-serif italic"> Articles</span>
       </h1>
     </div>
@@ -43,6 +43,7 @@
           <div class="w-full lg:w-9/12 px-4 mb-10 lg:mb-0">
             <div class="max-w-2xl">
               <span class="block text-gray-400 mb-1">{{ blog.date }}</span>
+              <span v-if="blog.update" class="block text-gray-400 mb-1">{{ blog.update +' (last update)'}}</span> 
               <p class="text-2xl font-semibold text-gray-900">{{blog.title}}</p>
               <div class="flex flex-wrap  gap-2">
                 <p 

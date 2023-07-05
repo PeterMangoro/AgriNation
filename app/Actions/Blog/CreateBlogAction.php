@@ -16,8 +16,8 @@ class CreateBlogAction
         libxml_use_internal_errors(true);
         $dom->loadHtml($editor_content);
         $this->handleImages($dom);
-        $editor_content_save = utf8_decode($dom->saveHTML($dom));
-
+        // $editor_content_save = utf8_decode($dom->saveHTML($dom));
+        $editor_content_save = ($dom->saveHTML($dom));
         return DB::table('blogs')->insertGetId([
             'title' => $validated_request->title,
             'tags' => $validated_request->tags,

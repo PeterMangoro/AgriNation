@@ -129,14 +129,15 @@
     </template> -->
   </form-section>
 
-  <div class="my-2 shadow-xl  border-none">
+  <div class="my-2 shadow  border-none rounded shadow-green-600">
     <quill-editor
-            theme="snow"
+            theme="bubble"
             :modules="modules"
             toolbar="full"
             v-model:content="form.detail"
             contentType="html"
             style="min-height:300px;"
+            placeholder="Write Your Blog Here"
           />
   </div>
   <div class="text-right">
