@@ -16,12 +16,14 @@ class CreateBlogAction
         libxml_use_internal_errors(true);
         $dom->loadHtml($editor_content);
         $this->handleImages($dom);
-        // $editor_content_save = utf8_decode($dom->saveHTML($dom));
+
+        $editor_content_save = mb_convert_encoding($dom->saveHTML($dom), 'ISO-8859-1','UTF-8',);
+        
         $editor_content_save = ($dom->saveHTML($dom));
         return DB::table('blogs')->insertGetId([
             'title' => $validated_request->title,
             'tags' => $validated_request->tags,
-            'detail' => $editor_content_save,
+            'detail' =>  $editor_content_save,
             'created_at' => Carbon::now(),
             'uuid' => Str::uuid()->toString(),
         ]);

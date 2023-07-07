@@ -1,5 +1,5 @@
 <template>
-  <app-layout title="Edit Blog">
+  <app-layout   :title="'Edit '+data.blog.title">>
     <!-- <bread-crumb :id="data.blog.id" :routes="routes" /> -->
 
     <div>

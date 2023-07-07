@@ -82,6 +82,9 @@
     </div>
   </div>
 </section>
+<div  class="p-2 flex justify-center">
+      <Pagination :links="data.blogs.links" class="text-center" />
+    </div>
       <span class="w-full" v-if="data.blogs.data.length == 0">
         <no-result-display />
       </span>
@@ -113,6 +116,7 @@ import ButtonLink from "@/Components/Shared/Table/ButtonLink.vue";
 import SearchTable from "@/Components/Shared/Table/SearchTable.vue";
 import { useSort } from "@/Composables/sort.js";
 import NoResultDisplay from "@/Components/Shared/NoResultDisplay.vue";
+import Pagination from "@/Components/Shared/Pagination.vue";
 
 const props = defineProps({
   data: Object,
