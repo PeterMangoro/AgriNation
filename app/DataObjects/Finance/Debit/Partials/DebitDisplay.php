@@ -14,6 +14,7 @@ class DebitDisplay
         public  readonly array $detail,        
         public  readonly int $id,
         public  readonly string $date,
+        public  readonly string $uuid,
     ) {
     }
     public static function data($debit)
@@ -33,6 +34,7 @@ class DebitDisplay
             $debit->detail,           
             $debit->id,
             Time::date($debit->date),  
+            $debit->uuid,
             
         );
     }

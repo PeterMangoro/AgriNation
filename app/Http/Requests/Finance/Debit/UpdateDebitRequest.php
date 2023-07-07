@@ -11,7 +11,7 @@ class UpdateDebitRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class UpdateDebitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'source' => 'required|max:255',
+            'currency' => 'required|max:255',            
+            'price' => 'required|numeric|min:0',
+            'rate' => 'nullable|numeric|min:0',            
+            'detail' => 'required|string',
+            'date' => 'required|date',
         ];
     }
 }

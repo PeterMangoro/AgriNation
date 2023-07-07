@@ -3,6 +3,7 @@
 namespace App\Actions\Finance\Debit;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class CreateDebitAction
@@ -14,6 +15,7 @@ class CreateDebitAction
             'date' => $validated_request->date,
             'created_at' => Carbon::now(),
             'debt' => true,
+            'uuid' => Str::uuid()->toString(),
         ]);
     }
 

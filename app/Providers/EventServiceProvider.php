@@ -47,8 +47,8 @@ use App\Events\{
     Location\UpdatingLocation,  
     Plant\UpdatingPlant,
     Finance\Income\UpdatingIncome,
-    Finance\Income\UpdatingDebit,
-    Finance\Income\UpdatingCredit,
+    Finance\Debit\UpdatingDebit,
+    Finance\Credit\UpdatingCredit,
     Finance\Expenditure\UpdatingExpenditure,
 };
 
@@ -63,8 +63,8 @@ use App\Listeners\{
     Plant\UpdatePlant, 
     Finance\Income\UpdateIncome, 
     Finance\Expenditure\UpdateExpenditure,
-    Finance\Expenditure\UpdateDebit,
-    Finance\Expenditure\UpdateCredit,
+    Finance\Debit\UpdateDebit,
+    Finance\Credit\UpdateCredit,
     
 };
 

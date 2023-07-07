@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Finance;
 
-use App\Actions\Finance\Debit\DeleteDebtAction;
+use App\Models\Finance\Debit;
 use App\Http\Controllers\Controller;
 use App\Handlers\Finance\Debit\DebitHandler;
+use App\Views\Finance\Debits\DebitEditProps;
 use App\Views\Finance\Debits\DebitIndexProps;
 use App\Views\Finance\Debits\DebitCreateProps;
+use App\Actions\Finance\Debit\DeleteDebtAction;
 use App\Http\Requests\Finance\Debit\CreateDebitRequest;
-use App\Models\Finance\Debit;
+use App\Http\Requests\Finance\Debit\UpdateDebitRequest;
 
 class DebitController extends Controller
 {
@@ -33,14 +35,23 @@ class DebitController extends Controller
       return to_route('debits.index')->with('flash.banner', 'Debit Added Successfully');
    }
 
+
+   public function edit(string $uuid)
+   {
+      return inertia('Debit/edit',[
+         'data' => new DebitEditProps($uuid)
+      ]);
+   }
+
    public function show()
    {
       return inertia('Debit/show');
    }
 
-   public function update()
+   public function update(UpdateDebitRequest $request,string $uuid)
    {
-      return inertia('Debit/index');
+      DebitHandler::update($request, $uuid);
+      return back();
    }
 
    public function destroy(  $debt)
