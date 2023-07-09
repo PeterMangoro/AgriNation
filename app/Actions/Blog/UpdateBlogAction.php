@@ -8,7 +8,7 @@ class UpdateBlogAction
     {
         $blog->title = $validated_request->title;
         $blog->tags = $validated_request->tags;
-        $blog->detail =  mb_convert_encoding($validated_request->detail, 'ISO-8859-1','UTF-8',);          
+        $blog->detail =  $validated_request->detail;          
         $blog->save();
     }
 }

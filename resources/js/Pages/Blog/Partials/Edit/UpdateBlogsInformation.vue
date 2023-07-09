@@ -2,7 +2,7 @@
 <template>
     <form-section @submitted="updateBlogDetail">
       <template #title> 
-        <p class="text-sky-500">Update Blog</p>  </template>
+        <p class="text-sky-500"> Update Blog </p>  </template>
   
       <template #description>
         <p class="text-slate-900 mb-2"> Update your Blog Title.</p>

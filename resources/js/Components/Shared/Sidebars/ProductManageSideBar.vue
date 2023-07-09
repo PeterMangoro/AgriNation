@@ -17,7 +17,7 @@ const emit = defineEmits(["showElements"]);
     class="border-r flex justify-center h-screen fixed"
     aria-label="Sidebar"
   >
-    <div class="text-gray-800 font-thin p-1 items-center">
+    <div class=" font-thin p-1 items-center">
       <Link
         class="border-b grid p-6 cursor-pointer"
         href="/dashboard?show=accounts"

@@ -9,7 +9,7 @@
      <div class="flex flex-wrap space-x-3 justify-center m-2">
                 <p 
               v-for="tag in blog.tags" :key="tag"
-              class="border   rounded-full w-fit px-1.5 border-black text-gray-900">{{ tag }}</p>
+              class="border   rounded-full w-fit px-1.5 border-black ">{{ tag }}</p>
             
               </div>
    </div>

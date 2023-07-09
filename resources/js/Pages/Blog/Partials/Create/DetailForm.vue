@@ -2,13 +2,13 @@
 <template>
   <form-section @submitted="createBlog">
     <template #title>
-      <p class="dark:text-slate-50 text-slate-900">Add Blog</p>
+      <p class=" ">Add Blog</p>
     </template>
 
     <template #description>
-      <p class="dark:text-slate-50 text-slate-900">Tell us the title your Blog</p>
-      <p class="dark:text-slate-50 text-slate-900 mt-2">Please resize your image ,size should not Exceed 2mb.</p>
-      <p class="dark:text-slate-50 text-slate-900 mt-2">
+      <p class=" ">Tell us the title your Blog</p>
+      <p class="  mt-2">Please resize your image ,size should not Exceed 2mb.</p>
+      <p class="  mt-2">
         Visit <a class="underline" href="https://tinypng.com/" target="_blank">tinypng.com</a> for
         free image resizing.
       </p>
@@ -61,7 +61,7 @@
           >
             <div class="space-y-1 text-center">
               <svg
-                class="w-12 h-12 mx-auto  dark:dark:text-slate-50 text-slate-900"
+                class="w-12 h-12 mx-auto  dark: "
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 48 48"
@@ -74,7 +74,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              <div class="flex text-sm  dark:dark:text-slate-50 text-slate-900 ">
+              <div class="flex text-sm  dark:  ">
                 <label
                   for="file-upload"
                   class="
@@ -100,7 +100,7 @@
                   />
                 </label>
               </div>
-              <p class="text-xs  dark:dark:text-slate-50 text-slate-900">PNG, JPG, GIF up to 2MB</p>
+              <p class="text-xs  dark: ">PNG, JPG, GIF up to 2MB</p>
               <InputError
                 class="mt-2"
                 v-for="(error, image) in form.errors.images"

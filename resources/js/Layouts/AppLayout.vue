@@ -38,7 +38,7 @@ const logout = () => {
 
    
 
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-slate-50">
       <nav
         class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700"
       >
@@ -436,21 +436,21 @@ const logout = () => {
         </div>
       </nav>
 
-      <div class="flex w-screen">
+      <div class="flex w-screen ">
         <div class="w-1/6 hidden  sm:flex">
           <side-bar @click="showElements" />
         </div>
         <div class="sm:w-full">
           <Banner class="w-sc" />
           <!-- Page Heading -->
-          <header v-if="$slots.header" class="dark:bg-gray-800">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <header v-if="$slots.header" >
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
               <slot name="header" />
             </div>
           </header>
 
           <!-- Page Content -->
-          <main>
+          <main >
             <slot />
           </main>
         </div>
